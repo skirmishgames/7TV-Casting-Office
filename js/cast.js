@@ -26,6 +26,8 @@
     }
     return byName.get(k);
   }
+  // stubs carry no card text, so assume the official leader has the effect
+  const hasUnitLeader = (p) => p.stub || (p.back || []).some((sec) => (sec.entries || []).some((e) => /^unit leader$/i.test(String(e.name || '').trim())));
   function newUnit(def) {
     return { uid: App.uid(), def: def.id, leader: 0, slots: def.slots.map((s, i) => ({ opt: 0, qty: i === 0 ? 1 : 0 })) };
   }
@@ -196,7 +198,7 @@
       h += `<div class="unit" data-u="${u.uid}">
         <div class="u-head">
           <div class="u-title"><span class="u-name">${esc(def.name)}</span>
-            <span class="u-meta">Unit, ${esc(def.page)}. ${models} model${models === 1 ? '' : 's'}. ${leader ? esc(leader.name) + "'s Unit Leader effect lets these models activate with them when within 6\"." : ''}</span></div>
+            <span class="u-meta">Unit, ${esc(def.page)}. ${models} model${models === 1 ? '' : 's'}. ${leader && hasUnitLeader(leader) ? esc(leader.name) + "'s Unit Leader effect lets these models activate with them when within 6\"." : ''}${def.note ? ' ' + esc(def.note) : ''}</span></div>
           <span class="m-cost">${cost}</span>
           <button type="button" class="icon-btn btn-danger" data-uact="del" aria-label="Remove the ${esc(def.name)} unit">Remove unit</button>
         </div>`;
@@ -266,7 +268,7 @@
       return `<div class="add-row unit-row ${why ? 'misfit' : ''}" style="--k:${R.KINDS.extra.band}">
         <div class="a-main"><span class="a-name">${esc(u.name)}</span>
           <span class="a-meta">${esc(R.BOOKS[u.book].label)}, led by ${esc(u.leader.join(' or '))}${leader ? ' (' + esc(R.AFFILIATIONS[leader.affiliation]).toLowerCase() + ')' : ''}${why ? ` <span class="a-why">${esc(why)}</span>` : ''}</span>
-          <span class="a-units">${esc(u.slots.map((s) => s.text).join(', '))}</span></div>
+          <span class="a-units">${esc(u.slots.map((s) => s.text).join(', '))}</span>${u.note ? `<span class="a-units">${esc(u.note)}</span>` : ''}</div>
         <button type="button" class="btn btn-ghost btn-small" data-addunit="${u.id}" aria-label="Add the ${esc(u.name)} unit">${n ? `Add another (${n})` : 'Add unit'}</button>
       </div>`;
     }).join('') || '<p class="hint">No unit fits this cast. Untick the filter above to see them all.</p>';

@@ -27,19 +27,19 @@ const assert = (c, m) => { if (!c) throw new Error('FAIL: ' + m); console.log('o
     return { bad, per, n: M.length, info, titles: M.map((m) => m.t), dup: M.map((m) => m.t + m.y).filter((x, i, a) => a.indexOf(x) !== i) };
   });
   assert(data.info === 12, 'all 12 genres have a sub-genre line and a summary');
-  assert(data.n === 100 && Object.values(data.per).every((n) => n === 20) && Object.keys(data.per).join() === '1980,1990,2000,2010,2020', '100 films, 20 in each decade from the 1980s to the 2020s');
+  assert(data.n >= 300 && Object.keys(data.per).join() === '1950,1960,1970,1980,1990,2000,2010,2020' && [1980, 1990, 2000, 2010, 2020].every((d) => data.per[d] >= 20), `${data.n} films from the 1950s to the 2020s, nothing earlier, at least 20 a decade from the 1980s`);
   assert(data.bad.length === 0, 'every cast role resolves to a matching profile ' + data.bad.join('; '));
   assert(data.dup.length === 0, 'no duplicate films');
   const must = ['Commando', 'Rambo: First Blood Part II', 'Rambo', 'John Wick', 'Predator', 'Die Hard', 'Die Hard 2', 'Die Hard with a Vengeance', 'Universal Soldier', 'Hard Target',
     'Army of Darkness', 'Lethal Weapon', 'Escape from New York', 'They Live', 'Scarface', 'Under Siege', 'Metro', 'Beverly Hills Cop', 'Aliens', 'GoldenEye', 'Bad Boys', 'Rush Hour',
-    'True Lies', 'Speed', 'The Terminator', 'Demolition Man'];
+    'True Lies', 'Speed', 'The Terminator', 'Demolition Man', 'Cobra', 'RoboCop 2', 'Den of Thieves'];
   const missing = must.filter((t) => !data.titles.includes(t));
   assert(missing.length === 0, 'all requested films are listed ' + missing.join(', '));
 
   await p.click('.tab[data-view="genres"]'); await p.waitForTimeout(300);
   assert(await p.locator('.gp-genre').count() === 12, '12 genre cards with symbols');
   assert(await p.locator('.gp-genre img').count() === 12, 'every genre card has its symbol');
-  assert((await p.textContent('#gpCount')).startsWith('100 films'), 'all 100 films listed by default');
+  assert((await p.textContent('#gpCount')).startsWith(data.n + ' films'), `all ${data.n} films listed by default`);
   await p.click('.gp-genre[data-genre="frightmare"]'); await p.waitForTimeout(300);
   const fright = await p.evaluate(() => SEVENTV_MOVIES.filter((m) => m.g.includes('frightmare')).length);
   assert(await p.locator('.gp-film').count() === fright && await p.getAttribute('.gp-genre[data-genre="frightmare"]', 'aria-pressed') === 'true', 'clicking Frightmare filters to its films');
@@ -51,9 +51,12 @@ const assert = (c, m) => { if (!c) throw new Error('FAIL: ' + m); console.log('o
   await p.click('#gpClear'); await p.fill('#gpSearch', 'die hard'); await p.waitForTimeout(200);
   assert(await p.locator('.gp-film').count() === 4, 'search "die hard" finds the four Die Hard films');
   await p.fill('#gpSearch', 'commando'); await p.waitForTimeout(200);
-  await p.click('.gp-film summary'); await p.waitForTimeout(200);
-  assert(/John Matrix[\s\S]*Heroic Star/.test(await p.textContent('.gp-film')) && /Bennett[\s\S]*Villainous Star/.test(await p.textContent('.gp-film')) && /Cindy[\s\S]*Heroic Co-Star/.test(await p.textContent('.gp-film')), 'Commando lists John Matrix, Cindy and Bennett with their 7TV roles');
-  await p.click('.gp-film [data-start="0"]'); await p.waitForTimeout(500);
+  // the search also matches films cast with the Space Commando profile, so pick Commando itself
+  const cmd = p.locator('.gp-film', { has: p.locator('.gp-title', { hasText: /^Commando \(1985\)/ }) });
+  await cmd.locator('summary').click(); await p.waitForTimeout(200);
+  const ct = await cmd.textContent();
+  assert(/John Matrix[\s\S]*Heroic Star/.test(ct) && /Bennett[\s\S]*Villainous Star/.test(ct) && /Cindy[\s\S]*Heroic Co-Star/.test(ct), 'Commando lists John Matrix, Cindy and Bennett with their 7TV roles');
+  await cmd.locator('[data-start="0"]').click(); await p.waitForTimeout(500);
   assert(await p.inputValue('#fName') === 'John Matrix' && await p.inputValue('#fAffiliation') === 'heroic', 'starting a card from a character names it and sets the affiliation');
 
   const ph = await (await b.newContext({ viewport: { width: 390, height: 844 } })).newPage(); ph.on('pageerror', (e) => errs.push(e.message));

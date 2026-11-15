@@ -104,8 +104,8 @@ window.SEVENTV_UNITS = [
     { text: '1 Special Forces', max: 1, opts: ['Special Forces'] },
     { text: '1 Truck or Chopper', max: 1, opts: ['Truck', 'Chopper'] }] },
 
-  /* Steel Justice Feature Pack p. 9. Cops and Thugs are Core profiles. The pack has no card for the
-     OCPD Riot Sergeant, so that leader does not resolve to a profile. */
+  /* Steel Justice Feature Pack p. 9. Cops and Thugs are Core profiles. The pack names an OCPD Riot Sergeant
+     as the OCPD Assault Team's leader but prints no card for one, so that unit offers two stand-ins (see note). */
   { id: 'corporate-kill-squad', book: 'steeljustice', page: 'Steel Justice p. 9', name: 'Corporate Kill Squad', leader: ['Contract Killer'], slots: [
     { text: '1-2 Cyborg Assassins', max: 2, opts: ['Cyborg Assassin'] },
     { text: '1-4 Hired Guns', max: 4, opts: ['Hired Gun'] }] },
@@ -115,7 +115,8 @@ window.SEVENTV_UNITS = [
   { id: 'mutant-cell', book: 'steeljustice', page: 'Steel Justice p. 9', name: 'Mutant Cell', leader: ['Mutant Leader'], slots: [
     { text: '1-3 Toxic Mutants', max: 3, opts: ['Toxic Mutant'] },
     { text: '1-3 Mongrols', max: 3, opts: ['Mongrol'] }] },
-  { id: 'ocpd-assault-team', book: 'steeljustice', page: 'Steel Justice p. 9', name: 'OCPD Assault Team', leader: ['OCPD Riot Sergeant'], slots: [
+  { id: 'ocpd-assault-team', book: 'steeljustice', page: 'Steel Justice p. 9', name: 'OCPD Assault Team', leader: ['OCPD Riot Officer', 'Police Sergeant'],
+    note: 'The pack names an OCPD Riot Sergeant as leader but has no card for one. Lead with an OCPD Riot Officer, or with the Police Sergeant if you own the 80s genre guide.', slots: [
     { text: '1-3 OCPD Riot Officers', max: 3, opts: ['OCPD Riot Officer'] },
     { text: '1-6 Cops', max: 6, opts: ['Cop'] }] },
   { id: 'slick-crew', book: 'steeljustice', page: 'Steel Justice p. 9', name: 'Slick Crew', leader: ['Klorox Joe'], slots: [

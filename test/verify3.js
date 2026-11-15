@@ -77,7 +77,8 @@ const assert = (c, m) => { if (!c) throw new Error('FAIL: ' + m); console.log('o
     assert((await p.locator('#addList [data-add^="p:"]').count()) === n, `${n} 80s ${k} profiles listed`);
   }
   await p.click('#addBook [data-book=""]'); await p.click('#addKinds [data-kind="star"]');
-  assert((await p.locator('#addList [data-add^="p:"]').count()) === 34, 'both books together: 34 Stars');
+  const allStars = await p.evaluate(() => SEVENTV_PROFILES.filter((x) => x.kind === 'star' && !x.stub).length);
+  assert((await p.locator('#addList [data-add^="p:"]').count()) === allStars, `all books together: ${allStars} Stars`);
   // phone layout: bottom bar flips between the cast and the Add list
   const ph = await (await b.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true })).newPage();
   ph.on('pageerror', (e) => errs.push(e.message));

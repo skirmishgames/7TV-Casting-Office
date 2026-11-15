@@ -14,7 +14,8 @@ const assert = (c, m) => { if (!c) throw new Error('FAIL: ' + m); console.log('o
   // every unit member resolves to a profile
   const missing = await p.evaluate(() => {
     const P = window.SEVENTV_PROFILES, out = [];
-    const find = (n, book) => { const m = (bk) => P.find((x) => x.genreSet === bk && x.name.toLowerCase() === n.toLowerCase()); return m(book) || m(book === 'core' ? '80s' : 'core'); };
+    // the same order the Call Sheet uses: the unit's own book, then Core, then 80s
+    const find = (n, book) => [book, 'core', '80s'].reduce((hit, bk) => hit || P.find((x) => SEVENTV_RULES.bookOf(x) === bk && x.name.toLowerCase() === n.toLowerCase()), null);
     for (const u of window.SEVENTV_UNITS) for (const n of [...u.leader, ...u.slots.flatMap((s) => s.opts)]) if (!find(n, u.book)) out.push(u.name + ': ' + n);
     return out;
   });
