@@ -1079,7 +1079,7 @@
     $$('.tab').forEach((t) => t.classList.toggle('is-active', t.dataset.view === v));
     $$('.view').forEach((s) => s.classList.toggle('is-active', s.id === 'view-' + v));
     if (v === 'cards') renderCardsView();
-    if (v === 'print') refreshSaved().then(renderPrintView);
+    if (v === 'print') { refreshSaved().then(renderPrintView); if (window.Dividers) window.Dividers.show(); }
     if (v === 'cast' && window.CastUI) window.CastUI.show();
     if (v === 'genres' && window.GenresUI) window.GenresUI.show();
     if (v === 'props' && window.PropsUI) window.PropsUI.show();

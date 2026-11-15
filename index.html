@@ -11,8 +11,8 @@
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=3">
 <meta name="apple-mobile-web-app-title" content="Casting Office">
 <meta name="theme-color" content="#9e2b2b">
-<link rel="stylesheet" href="css/fonts.css?v=202610292355">
-<link rel="stylesheet" href="css/styles.css?v=202610292355">
+<link rel="stylesheet" href="css/fonts.css?v=202611150039">
+<link rel="stylesheet" href="css/styles.css?v=202611150039">
 <script>try { document.documentElement.dataset.theme = localStorage.getItem('seventv-theme') === 'dark' ? 'dark' : 'light'; } catch (e) { document.documentElement.dataset.theme = 'light'; }</script>
 </head>
 <body>
@@ -279,6 +279,26 @@
         <p class="hint" id="pdfState"></p>
       </div>
       <div class="print-preview" id="printPreview"></div>
+    </div>
+    <div class="panel dv-panel">
+      <div class="dv-head">
+        <div>
+          <h2>Binder dividers</h2>
+          <p class="hint">One divider card for each binder section, with an icon and the cards that file behind it. Put each divider in the top-left pocket of its section. Stars and Co-Stars are split by affiliation, Extras by theme. Uses the Paper and Crop marks settings above.</p>
+        </div>
+        <div class="dv-controls">
+          <div class="dv-books" id="dvBooks" role="group" aria-label="Books in your collection">
+            <span class="dv-label">Books you own</span>
+            <label class="inline check"><input type="checkbox" checked disabled> Core Rulebook</label>
+            <label class="inline check"><input type="checkbox" data-book="80s"> 80s genre guide</label>
+            <label class="inline check"><input type="checkbox" data-book="steeljustice"> Steel Justice</label>
+          </div>
+          <button class="btn btn-primary" id="btnDividers">Make dividers PDF</button>
+          <p class="hint" id="dvCount"></p>
+          <p class="hint" id="dvState"></p>
+        </div>
+      </div>
+      <div class="dv-preview" id="dvPreview"></div>
     </div>
   </section>
   <!-- ABOUT -->
@@ -616,6 +636,7 @@
           <li>Your cards and casts are saved in this browser only. Nothing is uploaded. Use Export backup in My Cards to keep a copy or move to another computer.</li>
           <li>Cards print at 63.5 x 88 mm, the size of standard card sleeves. Print the PDF at 100% (actual size).</li>
           <li>Headings use League Gothic, numbers Anton and card text PT Sans Narrow, free stand-ins for the fonts on the printed cards. Frames and icons are drawn by the app, apart from the genre symbols.</li>
+          <li>The binder divider icons come from <a href="https://game-icons.net" target="_blank" rel="noopener">game-icons.net</a> by Lorc, Delapouite and contributors, under <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener">CC BY 3.0</a>.</li>
           <li>The ratings calculator applies the customisation rules as written. Agree custom profiles with your opponent before play, as the rulebook recommends.</li>
         </ul>
         <div class="about-errata" id="aboutErrata">
@@ -686,28 +707,30 @@
 
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
-<script src="js/vendor/jspdf.umd.min.js?v=202610292355"></script>
-<script src="js/data/rules.js?v=202610292355"></script>
-<script src="js/data/profiles.js?v=202610292355"></script>
-<script src="js/data/profiles-stubs.js?v=202610292355"></script>
-<script src="js/data/special-effects.js?v=202610292355"></script>
-<script src="js/data/units.js?v=202610292355"></script>
-<script src="js/data/genres-info.js?v=202610292355"></script>
-<script src="js/data/movies.js?v=202610292355"></script>
-<script src="js/data/book-index.js?v=202610292355"></script>
-<script src="js/data/episodes.js?v=202610292355"></script>
-<script src="js/data/roles.js?v=202610292355"></script>
-<script src="js/prop-render.js?v=202610292355"></script>
-<script src="js/card-render.js?v=202610292355"></script>
-<script src="js/ratings.js?v=202610292355"></script>
-<script src="js/cast-rules.js?v=202610292355"></script>
-<script src="js/card-store.js?v=202610292355"></script>
-<script src="js/print.js?v=202610292355"></script>
-<script src="js/app.js?v=202610292355"></script>
-<script src="js/props.js?v=202610292355"></script>
-<script src="js/genres.js?v=202610292355"></script>
-<script src="js/index-page.js?v=202610292355"></script>
-<script src="js/episodes-page.js?v=202610292355"></script>
-<script src="js/cast.js?v=202610292355"></script>
+<script src="js/vendor/jspdf.umd.min.js?v=202611150039"></script>
+<script src="js/data/rules.js?v=202611150039"></script>
+<script src="js/data/profiles.js?v=202611150039"></script>
+<script src="js/data/profiles-stubs.js?v=202611150039"></script>
+<script src="js/data/special-effects.js?v=202611150039"></script>
+<script src="js/data/units.js?v=202611150039"></script>
+<script src="js/data/genres-info.js?v=202611150039"></script>
+<script src="js/data/movies.js?v=202611150039"></script>
+<script src="js/data/book-index.js?v=202611150039"></script>
+<script src="js/data/episodes.js?v=202611150039"></script>
+<script src="js/data/roles.js?v=202611150039"></script>
+<script src="js/prop-render.js?v=202611150039"></script>
+<script src="js/card-render.js?v=202611150039"></script>
+<script src="js/ratings.js?v=202611150039"></script>
+<script src="js/cast-rules.js?v=202611150039"></script>
+<script src="js/card-store.js?v=202611150039"></script>
+<script src="js/data/binder.js?v=202611150039"></script>
+<script src="js/dividers.js?v=202611150039"></script>
+<script src="js/print.js?v=202611150039"></script>
+<script src="js/app.js?v=202611150039"></script>
+<script src="js/props.js?v=202611150039"></script>
+<script src="js/genres.js?v=202611150039"></script>
+<script src="js/index-page.js?v=202611150039"></script>
+<script src="js/episodes-page.js?v=202611150039"></script>
+<script src="js/cast.js?v=202611150039"></script>
 </body>
 </html>

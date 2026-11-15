@@ -235,6 +235,16 @@ textarea { width: 100%; resize: vertical; min-height: 64px; line-height: 1.35; }
 .print-item { display: flex; justify-content: space-between; align-items: center; gap: 8px; background: var(--field); padding: 6px 8px; border-radius: 6px; }
 .print-item input { width: 60px; }
 .print-preview { display: flex; flex-wrap: wrap; gap: 16px; }
+.dv-panel { margin-top: 20px; }
+.dv-head { display: flex; gap: 24px; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; }
+.dv-head > div:first-child { flex: 1 1 380px; }
+.dv-head .hint { max-width: 70ch; }
+.dv-controls { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; flex: 0 1 300px; }
+.dv-books { display: flex; flex-direction: column; gap: 4px; }
+.dv-label { font-weight: 600; }
+#dvState, #dvCount { margin: 0; }
+.dv-preview { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; margin-top: 14px; }
+.dv-thumb { width: 100%; height: auto; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.25); }
 .sheet { background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.3); position: relative; border: 1px solid var(--line); }
 .sheet img { position: absolute; }
 
