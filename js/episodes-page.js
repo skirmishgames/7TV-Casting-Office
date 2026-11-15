@@ -1,4 +1,4 @@
-/* Episodes page: browse the episodes and tropes of the Core Rulebook and the 80s book by summary,
+/* Episodes page: browse the episodes and tropes of the Core Rulebook, the 80s book and the Night Terrors campaign by summary,
    filter by book and genre, and see the page to turn to. */
 (function () {
   const R = window.SEVENTV_RULES;
@@ -8,7 +8,9 @@
   const $ = (s, el = document) => el.querySelector(s);
   const $$ = (s, el = document) => [...el.querySelectorAll(s)];
   const esc = App.esc;
-  const BOOK = { core: 'Core Rulebook', '80s': '80s book' };
+  const BOOK = { core: 'Core Rulebook', '80s': '80s book', nightterrors: 'Night Terrors' };
+  const SHORT = { core: 'Core', '80s': '80s', nightterrors: 'Night Terrors' };
+  const BADGE = { core: 'core', '80s': 'b80', nightterrors: 'bnt' };
   const E = { kind: 'episodes', q: '', book: '', genre: '', built: false };
 
   const GENRES = {};
@@ -31,10 +33,10 @@
       <div class="ep-head">
         <span class="ep-title">${mark(x.t, q)}</span>
         <span class="ep-gicons">${icons(x)}</span>
-        <span class="ix-ref"><span class="ix-book ix-${x.b === 'core' ? 'core' : 'b80'}">${x.b === 'core' ? 'Core' : '80s'}</span><span class="ix-pages">p. ${x.p}</span></span>
+        <span class="ix-ref"><span class="ix-book ix-${BADGE[x.b]}">${SHORT[x.b]}</span><span class="ix-pages">p. ${x.p}</span></span>
       </div>
       <p class="ep-sum">${mark(x.s, q)}</p>
-      <span class="ep-meta">${esc(x.type ? (x.type === 'Classic episode' ? x.type : x.type + ' episode') : 'Trope')}${x.g.length ? ', ' + esc(vs) : ''}</span>
+      <span class="ep-meta">${esc(x.type ? (x.type === 'Classic episode' ? x.type : x.type === 'Campaign' ? 'Campaign episode' : x.type + ' episode') : 'Trope')}${x.g.length ? ', ' + esc(vs) : ''}</span>
     </div>`;
   }
 
@@ -46,7 +48,7 @@
       && (!q || norm([x.t, x.s, x.type || '', genreNames(x).join(' ')].join(' ')).includes(q)));
   }
   function groupOf(x) {
-    if (E.kind === 'episodes') return BOOK[x.b] + ': ' + (x.type === 'Open play' ? 'open play episodes' : x.type === 'Narrative' ? 'narrative episodes' : 'classic episodes');
+    if (E.kind === 'episodes') return BOOK[x.b] + ': ' + (x.type === 'Open play' ? 'open play episodes' : x.type === 'Narrative' ? 'narrative episodes' : x.type === 'Campaign' ? 'campaign episodes' : 'classic episodes');
     return BOOK[x.b] + ': ' + GENRES[x.g[0]].name + ' tropes';
   }
 
@@ -56,7 +58,7 @@
     const noun = E.kind === 'episodes' ? 'episode' : 'trope';
     const bits = [];
     if (E.genre) bits.push(GENRES[E.genre].name);
-    if (E.book) bits.push(E.book === 'core' ? 'Core' : '80s');
+    if (E.book) bits.push(SHORT[E.book]);
     if (q) bits.push(`"${E.q.trim()}"`);
     $('#epCount').textContent = `${list.length} ${noun}${list.length === 1 ? '' : 's'}${bits.length ? ': ' + bits.join(', ') : ''}`;
     let h = '', grp = '';

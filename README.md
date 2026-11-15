@@ -28,7 +28,7 @@ It replaces the 1st edition casting tool ([jorgerobles/7tv2](https://github.com/
 
 - **Props and Maguffins.** The Props page designs Prop and Maguffin cards: name, item image (drag and zoom), play timing with its action symbol, cost in plot points, and effect text (Maguffins add a bold flavour paragraph). A Maguffin shows its image on both faces. Every Prop card shares one back: a drawn prop-store back, or your own image uploaded once and kept in this browser. Saved cards go into My Cards and print with the other cards.
 - **Genres.** All twelve genres, Core and 80s, with their symbols, sub-genres and a short summary of each. Click a genre to filter the film list below. Film inspiration lists over 300 films from the 1950s to now, with the 1980s best covered (no superhero films), filterable by genre, decade and a search of titles, characters, actors and profiles. Open a film to see its main characters as 7TV cast members (John Matrix, Heroic Star; Bennett, Villainous Star) with a suggested official profile; click it to start a card named after the character.
-- **Binder dividers.** On the Print Sheet page: one divider card per binder section (Stars and Co-Stars by affiliation, Extras by theme, Vehicles), with an icon and the cards that file behind it. Core is always included; tick the 80s genre guide and Steel Justice if you own them. Sections live in `js/data/binder.js`; `node tools/dividers/make-dividers.js out.pdf` builds the same PDF from the command line and stops if an Extra has no section.
+- **Binder dividers.** On the Print Sheet page: one divider card per binder section (Stars and Co-Stars by affiliation, Extras by theme, Vehicles), with an icon and the cards that file behind it. Core is always included; tick the 80s genre guide, Steel Justice and Night Terrors if you own them. Sections live in `js/data/binder.js`; `node tools/dividers/make-dividers.js out.pdf` builds the same PDF from the command line and stops if an Extra has no section.
 - **Reference.** A quick reference for play: the 10 setup steps, the turn sequence, plot points, victory points, actions, defence and strike rolls, statistic tests and statuses, with Core Rulebook page numbers. It reads on screen in light or dark mode, on a phone or desktop, and Download the PDF gives two A4 landscape pages with embedded fonts for printing (`assets/7TV-Quick-Reference.pdf`). Each status shows its token icon (`assets/status/`), from the Statuses page of the Core Rulebook.
 - **About.** Credits Crooked Dice, links to their shop for the official books, cards, miniatures and tokens, and links to this repository's Issues page for feedback.
 
@@ -113,9 +113,9 @@ This is an unofficial fan tool. 7TV is a trademark of Crooked Dice Game Design S
 
 ## Public and private builds
 
-The 80s genre guide and the Steel Justice Feature Pack are paid material, so their profile cards live in `js/data/private/` and only ship in the private repository. Everything else, including the units, example roles, index and episode summaries, is shared.
+The 80s genre guide, the Steel Justice Feature Pack and the Night Terrors Episode Guide are paid material, so their profile cards live in `js/data/private/` and only ship in the private repository. Everything else, including the units, example roles, index and episode summaries, is shared.
 
-To update the public site (justadude-g/7TV-Casting-Office), clone it next to this one and run:
+To update the public site (skirmishgames/7TV-Casting-Office, served at 7tv.skirmishgames.app), clone it next to this one and run:
 
 ```
 node tools/publish-public.js ../7TV-Casting-Office --push

@@ -11,8 +11,8 @@
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=3">
 <meta name="apple-mobile-web-app-title" content="Casting Office">
 <meta name="theme-color" content="#9e2b2b">
-<link rel="stylesheet" href="css/fonts.css?v=202611150126">
-<link rel="stylesheet" href="css/styles.css?v=202611150126">
+<link rel="stylesheet" href="css/fonts.css?v=202611150311">
+<link rel="stylesheet" href="css/styles.css?v=202611150311">
 <script>try { document.documentElement.dataset.theme = localStorage.getItem('seventv-theme') === 'dark' ? 'dark' : 'light'; } catch (e) { document.documentElement.dataset.theme = 'light'; }</script>
 </head>
 <body>
@@ -222,7 +222,7 @@
           <button data-src="official" class="is-on">Official profiles</button><button data-src="units">Units</button><button data-src="mine">My Cards</button>
         </div>
         <div class="seg seg-full" id="addBook" role="group" aria-label="Book">
-          <button data-book="" class="is-on">All</button><button data-book="core">Core</button><button data-book="80s">80s</button><button data-book="steeljustice">Steel Justice</button>
+          <button data-book="" class="is-on">All</button><button data-book="core">Core</button><button data-book="80s">80s</button><button data-book="steeljustice">Steel Justice</button><button data-book="nightterrors">Night Terrors</button>
         </div>
         <input type="search" id="addSearch" placeholder="Search by name or example">
         <div class="kind-tabs" id="addKinds" role="group" aria-label="Profile type"></div>
@@ -292,6 +292,7 @@
             <label class="inline check"><input type="checkbox" checked disabled> Core Rulebook</label>
             <label class="inline check"><input type="checkbox" data-book="80s"> 80s genre guide</label>
             <label class="inline check"><input type="checkbox" data-book="steeljustice"> Steel Justice</label>
+            <label class="inline check"><input type="checkbox" data-book="nightterrors"> Night Terrors</label>
           </div>
           <button class="btn btn-primary" id="btnDividers">Make dividers PDF</button>
           <p class="hint" id="dvCount"></p>
@@ -594,7 +595,7 @@
           <div class="seg" id="epKind" role="group" aria-label="Show"><button data-kind="episodes" class="is-on">Episodes</button><button data-kind="tropes">Tropes</button></div>
           <input type="search" id="epSearch" placeholder="Search titles and summaries: bomb, vampires, heist" aria-label="Search episodes and tropes">
           <select id="epGenre" aria-label="Genre"></select>
-          <div class="seg" id="epBook" role="group" aria-label="Book"><button data-book="" class="is-on">Both books</button><button data-book="core">Core</button><button data-book="80s">80s</button></div>
+          <div class="seg" id="epBook" role="group" aria-label="Book"><button data-book="" class="is-on">All books</button><button data-book="core">Core</button><button data-book="80s">80s</button><button data-book="nightterrors">Night Terrors</button></div>
         </div>
         <p class="hint" id="epGenreNote" hidden>Open play episodes suit any genre, so they always show.</p>
         <div id="epList" class="ix-list"></div>
@@ -663,7 +664,7 @@
     <div class="picker-top">
       <div class="row wrap filters">
         <div class="seg" id="bookFilter" role="group" aria-label="Book">
-          <button data-book="" class="is-on">All books</button><button data-book="core">Core</button><button data-book="80s">80s</button><button data-book="steeljustice">Steel Justice</button>
+          <button data-book="" class="is-on">All books</button><button data-book="core">Core</button><button data-book="80s">80s</button><button data-book="steeljustice">Steel Justice</button><button data-book="nightterrors">Night Terrors</button>
         </div>
         <input type="search" id="profileSearch" placeholder="Search names, examples, attacks or effects">
         <div class="seg" id="affFilter" role="group" aria-label="Affiliation">
@@ -707,30 +708,30 @@
 
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
-<script src="js/vendor/jspdf.umd.min.js?v=202611150126"></script>
-<script src="js/data/rules.js?v=202611150126"></script>
-<script src="js/data/profiles.js?v=202611150126"></script>
-<script src="js/data/profiles-stubs.js?v=202611150126"></script>
-<script src="js/data/special-effects.js?v=202611150126"></script>
-<script src="js/data/units.js?v=202611150126"></script>
-<script src="js/data/genres-info.js?v=202611150126"></script>
-<script src="js/data/movies.js?v=202611150126"></script>
-<script src="js/data/book-index.js?v=202611150126"></script>
-<script src="js/data/episodes.js?v=202611150126"></script>
-<script src="js/data/roles.js?v=202611150126"></script>
-<script src="js/prop-render.js?v=202611150126"></script>
-<script src="js/card-render.js?v=202611150126"></script>
-<script src="js/ratings.js?v=202611150126"></script>
-<script src="js/cast-rules.js?v=202611150126"></script>
-<script src="js/card-store.js?v=202611150126"></script>
-<script src="js/data/binder.js?v=202611150126"></script>
-<script src="js/dividers.js?v=202611150126"></script>
-<script src="js/print.js?v=202611150126"></script>
-<script src="js/app.js?v=202611150126"></script>
-<script src="js/props.js?v=202611150126"></script>
-<script src="js/genres.js?v=202611150126"></script>
-<script src="js/index-page.js?v=202611150126"></script>
-<script src="js/episodes-page.js?v=202611150126"></script>
-<script src="js/cast.js?v=202611150126"></script>
+<script src="js/vendor/jspdf.umd.min.js?v=202611150311"></script>
+<script src="js/data/rules.js?v=202611150311"></script>
+<script src="js/data/profiles.js?v=202611150311"></script>
+<script src="js/data/profiles-stubs.js?v=202611150311"></script>
+<script src="js/data/special-effects.js?v=202611150311"></script>
+<script src="js/data/units.js?v=202611150311"></script>
+<script src="js/data/genres-info.js?v=202611150311"></script>
+<script src="js/data/movies.js?v=202611150311"></script>
+<script src="js/data/book-index.js?v=202611150311"></script>
+<script src="js/data/episodes.js?v=202611150311"></script>
+<script src="js/data/roles.js?v=202611150311"></script>
+<script src="js/prop-render.js?v=202611150311"></script>
+<script src="js/card-render.js?v=202611150311"></script>
+<script src="js/ratings.js?v=202611150311"></script>
+<script src="js/cast-rules.js?v=202611150311"></script>
+<script src="js/card-store.js?v=202611150311"></script>
+<script src="js/data/binder.js?v=202611150311"></script>
+<script src="js/dividers.js?v=202611150311"></script>
+<script src="js/print.js?v=202611150311"></script>
+<script src="js/app.js?v=202611150311"></script>
+<script src="js/props.js?v=202611150311"></script>
+<script src="js/genres.js?v=202611150311"></script>
+<script src="js/index-page.js?v=202611150311"></script>
+<script src="js/episodes-page.js?v=202611150311"></script>
+<script src="js/cast.js?v=202611150311"></script>
 </body>
 </html>

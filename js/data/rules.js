@@ -34,7 +34,8 @@
   const BOOKS = {
     core: { id: 'core', label: 'Core', genreSet: 'core' },
     '80s': { id: '80s', label: '80s', genreSet: '80s' },
-    steeljustice: { id: 'steeljustice', label: 'Steel Justice', genreSet: 'core' }
+    steeljustice: { id: 'steeljustice', label: 'Steel Justice', genreSet: 'core' },
+    nightterrors: { id: 'nightterrors', label: 'Night Terrors', genreSet: 'core' }
   };
   const bookOf = (p) => (p && (p.book || p.genreSet)) || 'core';
 

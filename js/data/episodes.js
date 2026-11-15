@@ -1,4 +1,5 @@
-/* Episodes and tropes from the Core Rulebook (chapter 03, pp. 124-165) and the 80s book (chapter 02, pp. 44-101).
+/* Episodes and tropes from the Core Rulebook (chapter 03, pp. 124-165), the 80s book (chapter 02, pp. 44-101) and the
+   Night Terrors Episode Guide (pp. 38-88).
    Summaries are short paraphrases of what each one is about, not the books' text, and leave out set up and rules.
    g: genre keys (Core: action adventure fantasy historical horror scifi; 80s: coldwar frightmare greedglamour
    hiredhelp rebelstate silicondream). An empty list means any genre (the Core open play episodes). */
@@ -30,7 +31,13 @@ window.SEVENTV_EPISODES = [
   // 80s book: narrative episodes
   { t: 'Polygon', b: '80s', p: 77, type: 'Narrative', g: ['silicondream', 'greedglamour'], s: 'Four children are trapped inside an arcade cabinet and must beat the games of the mysterious Polygon to escape.' },
   { t: 'Blood Money', b: '80s', p: 80, type: 'Narrative', g: ['hiredhelp', 'frightmare'], s: "In a vampire-ruled Manhattan of 1997, a commando unit sent to stake the Master Vampire is really there to empty his vault." },
-  { t: 'Red Square', b: '80s', p: 83, type: 'Narrative', g: ['rebelstate', 'coldwar'], s: "In a Britain occupied after a nuclear war, East End resistance fighters strike when the occupying general visits their square." }
+  { t: 'Red Square', b: '80s', p: 83, type: 'Narrative', g: ['rebelstate', 'coldwar'], s: "In a Britain occupied after a nuclear war, East End resistance fighters strike when the occupying general visits their square." },
+  // Night Terrors Episode Guide: a five-episode campaign set in Pilgrim's Bluff (book pages)
+  { t: 'Night of the Comet', b: 'nightterrors', p: 38, type: 'Campaign', g: ['scifi', 'horror'], s: "Alien life-pods crash outside town. Stargazers and UFO hunters race the men in black of Blacklight for the wreckage, while the lone survivor's psychic power conjures monsters from their fears." },
+  { t: 'Horror at the Drive-In', b: 'nightterrors', p: 47, type: 'Campaign', g: ['horror', 'scifi'], s: "The captive alien taps into a 1950s monster-movie marathon, and giant maggots, flies and ants pour off the screen. Teenagers must shut down the projector before the double feature ends them." },
+  { t: 'The Armoured Class', b: 'nightterrors', p: 58, type: 'Campaign', g: ['fantasy'], s: "Kids playing Warrens & Wyrms after school find their game made real. As their alter egos they race goblins and bugbears through the Swamp of Sorrow for the Gems of Fate." },
+  { t: 'Monarch of Main Street', b: 'nightterrors', p: 70, type: 'Campaign', g: ['horror'], s: "At a midnight book signing, a horror novelist's monsters climb out of his books. The sheriff, her deputies and the townsfolk hold the town square against them." },
+  { t: 'Blacklight by Night', b: 'nightterrors', p: 79, type: 'Campaign', g: ['action', 'scifi'], s: "Escaped witnesses lead the sheriff, a Vietnam vet and his war buddies into Fort Howard to break the alien out of Hangar 18 and get its escape saucer flying." }
 ];
 
 window.SEVENTV_TROPES = [

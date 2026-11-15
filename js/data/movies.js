@@ -556,7 +556,7 @@
       ['Thulsa Doom', 'James Earl Jones', 'vs', 'evil-overlord'], ['Rexor', 'Ben Davidson', 'vc', 'red-right-hand'], ['Snake cultists', '', 've', 'cultist']]),
     M('E.T. the Extra-Terrestrial', 1982, 'scifi silicondream', 'A lonely boy hides a stranded alien from the government and helps it phone home.', [
       ['Elliott', 'Henry Thomas', 'hs', 'innocent-soul'], ['Michael', 'Robert MacNaughton', 'hc', 'brat-packer-80s'], ['Gertie', 'Drew Barrymore', 'he', 'kid'],
-      ['E.T.', '', 'ne', 'timid-alien-80s'], ['Keys', 'Peter Coyote', 'nc', 'spy-catcher-80s'], ['Government agents', '', 've', 'agent']]),
+      ['E.T.', '', 'ne', 'blue-the-alien-nt'], ['Keys', 'Peter Coyote', 'nc', 'spy-catcher-80s'], ['Government agents', '', 've', 'blacklight-agent-nt']]),
     M('Firefox', 1982, 'action coldwar silicondream', 'A US pilot is smuggled into the Soviet Union to steal a mind-controlled stealth fighter.', [
       ['Mitchell Gant', 'Clint Eastwood', 'hs', 'nam-vet-80s'], ['Pavel Upenskoy', 'Warren Clarke', 'hc', 'quirky-investigator'], ['Col. Kontarsky', 'Kai Wulff', 'vc', 'spy-catcher-80s'],
       ['KGB agents', '', 've', 'foreign-agent-80s']]),
@@ -691,8 +691,8 @@
       ['Scott Howard', 'Michael J. Fox', 'hs', 'raging-brute-80s'], ['Stiles', 'Jerry Levine', 'hc', 'brat-packer-80s'], ['Boof', 'Susan Ursitti', 'hc', 'everyman'],
       ['Coach Finstock', 'Jay Tarses', 'ne', 'coach-80s'], ['Mick McAllister', 'Mark Arnold', 'vc', 'cruel-bully']]),
     M('The Breakfast Club', 1985, 'rebelstate', 'Five students from different cliques spend a Saturday detention together.', [
-      ['Brian Johnson', 'Anthony Michael Hall', 'hs', 'innocent-soul'], ['John Bender', 'Judd Nelson', 'nc', 'brat-packer-80s'], ['Claire Standish', 'Molly Ringwald', 'nc', 'brat-packer-80s'],
-      ['Allison Reynolds', 'Ally Sheedy', 'nc', 'scream-teen-80s'], ['Andrew Clark', 'Emilio Estevez', 'ne', 'athlete-80s'], ['Principal Vernon', 'Paul Gleason', 'vs', 'stern-authoritarian-80s']]),
+      ['Brian Johnson', 'Anthony Michael Hall', 'hs', 'innocent-soul'], ['John Bender', 'Judd Nelson', 'ne', 'vincent-ash-nt'], ['Claire Standish', 'Molly Ringwald', 'ne', 'kimberley-mckenna-nt'],
+      ['Allison Reynolds', 'Ally Sheedy', 'ne', 'lori-reynolds-nt'], ['Andrew Clark', 'Emilio Estevez', 'ne', 'athlete-80s'], ['Principal Vernon', 'Paul Gleason', 'vs', 'stern-authoritarian-80s']]),
     M('The Goonies', 1985, 'adventure hiredhelp', 'A gang of kids about to lose their homes follow a pirate\'s treasure map through booby-trapped caves.', [
       ['Mikey Walsh', 'Sean Astin', 'hs', 'innocent-soul'], ['Data', 'Ke Huy Quan', 'hc', 'whiz-kid-80s'], ['Brand Walsh', 'Josh Brolin', 'hc', 'brat-packer-80s'],
       ['Sloth', 'John Matuszak', 'hc', 'missing-link-80s'], ['Mama Fratelli', 'Anne Ramsey', 'vs', 'kingpin'], ['Jake and Francis Fratelli', '', 'vc', 'career-criminal']]),
@@ -713,7 +713,7 @@
       ['Jeanie Bueller', 'Jennifer Grey', 'nc', 'brat-packer-80s'], ['Ed Rooney', 'Jeffrey Jones', 'vs', 'stern-authoritarian-80s'], ['The Ferrari', '', 'nv', 'sports-car']]),
     M('Flight of the Navigator', 1986, 'scifi silicondream', 'A boy wakes up eight years in the future after being taken by an alien ship, and escapes NASA on board it.', [
       ['David Freeman', 'Joey Cramer', 'hs', 'innocent-soul'], ['Max', 'Paul Reubens', 'nc', 'incorporeal-advisor-80s'], ['Dr. Faraday', 'Howard Hesseman', 'vc', 'mad-scientist'],
-      ['NASA security', '', 've', 'agent']]),
+      ['NASA security', '', 've', 'blacklight-agent-nt']]),
     M('Highlander', 1986, 'fantasy action greedglamour frightmare', 'An immortal Scottish swordsman faces the last of his kind in modern New York, where there can be only one.', [
       ['Connor MacLeod', 'Christopher Lambert', 'hs', 'bold-blade'], ['Ramírez', 'Sean Connery', 'hc', 'wise-mentor'], ['Brenda Wyatt', 'Roxanne Hart', 'hc', 'quirky-investigator'],
       ['The Kurgan', 'Clancy Brown', 'vs', 'sadistic-slasher'], ['NYPD detectives', '', 'he', 'plainclothes-cop-80s']]),
