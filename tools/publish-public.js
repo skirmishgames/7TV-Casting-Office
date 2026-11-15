@@ -26,7 +26,11 @@ const srcRemote = git(SRC, 'remote', 'get-url', 'origin'), destRemote = git(DEST
 if (srcRemote.replace(/\.git$/, '').toLowerCase() === destRemote.replace(/\.git$/, '').toLowerCase()) die('the target pushes to the same remote as this repository (' + destRemote + ')');
 
 // clear the target, keeping its .git
-for (const f of fs.readdirSync(DEST)) if (f !== '.git') fs.rmSync(path.join(DEST, f), { recursive: true, force: true });
+// pick up anything changed on GitHub first (such as the custom domain), so the push never has to overwrite it
+if (PUSH) git(DEST, 'pull', '-q', '--ff-only');
+// files that live only in the public repo: CNAME holds the Pages custom domain (7tv.skirmishgames.app)
+const PUBLIC_ONLY = ['.git', 'CNAME'];
+for (const f of fs.readdirSync(DEST)) if (!PUBLIC_ONLY.includes(f)) fs.rmSync(path.join(DEST, f), { recursive: true, force: true });
 
 const files = git(SRC, 'ls-files').split('\n').filter((f) => f && !f.startsWith(PRIVATE));
 for (const f of files) {
