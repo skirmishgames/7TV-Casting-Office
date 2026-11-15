@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* Binder divider cards from the command line, drawn by js/dividers.js (the same code as the Print Sheet page).
-     node tools/dividers/make-dividers.js <out.pdf> [--books 80s,steeljustice] [--paper letter|a4] [--png <dir>]
+     node tools/dividers/make-dividers.js <out.pdf> [--books 80s,steeljustice,nightterrors] [--paper letter|a4] [--png <dir>]
    Core is always included. Stops if an Extra is in no binder section or in two (see js/data/binder.js).
    Needs Playwright. */
 const http = require('http');
@@ -11,9 +11,9 @@ const { chromium } = require('playwright');
 const ROOT = path.join(__dirname, '..', '..');
 const args = process.argv.slice(2);
 const OUT = args[0];
-if (!OUT || OUT.startsWith('--')) { console.error('usage: node tools/dividers/make-dividers.js <out.pdf> [--books 80s,steeljustice] [--paper letter|a4] [--png <dir>]'); process.exit(1); }
+if (!OUT || OUT.startsWith('--')) { console.error('usage: node tools/dividers/make-dividers.js <out.pdf> [--books 80s,steeljustice,nightterrors] [--paper letter|a4] [--png <dir>]'); process.exit(1); }
 const opt = (name, def) => { const i = args.indexOf(name); return i > 0 ? args[i + 1] : def; };
-const BOOKS = opt('--books', '80s,steeljustice').split(',').filter(Boolean);
+const BOOKS = opt('--books', '80s,steeljustice,nightterrors').split(',').filter(Boolean);
 const PAPER = opt('--paper', 'letter');
 const PNG_DIR = opt('--png', null);
 const TYPES = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.png': 'image/png', '.jpg': 'image/jpeg', '.svg': 'image/svg+xml', '.woff2': 'font/woff2', '.json': 'application/json' };
