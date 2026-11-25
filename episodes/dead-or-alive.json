@@ -1,0 +1,450 @@
+{
+  "app": "7tv-casting-office",
+  "kind": "episode",
+  "version": 1,
+  "doc": {
+    "id": "dead-or-alive",
+    "type": "episode",
+    "title": "Dead or Alive",
+    "tagline": "Clarence Boddicker is coming in. One way or the other.",
+    "genres": [
+      "action",
+      ""
+    ],
+    "basis": "The Raid",
+    "synopsisTitle": "Opening crawl",
+    "synopsis": "Old Detroit, after midnight. The east-side cocaine factory runs three shifts, and the man who owns it has never seen the inside of a cell. Clarence Boddicker pays his people well, pays the right cops better, and keeps his books in the office upstairs, where they tie every gram on the floor to a corner office at OCP.\n\nTonight a squad car rolls up to the gate with its lights off. Behind it walks something the police department bought last month: part man, part machine, and programmed to serve the public trust.\n\nOfficer Anne Lewis wants Boddicker in handcuffs. The thing beside her wants him too. It just hasn't decided how.",
+    "production": "Inspired by the drug factory raid in RoboCop (1987). The police score twice as much for taking Clarence alive as for killing him, so every shot at him is a choice. The gang has a way out at the dock and a lawyer on the phone, and both arrive in the Finale. Built for Steel Justice: C.O.P. Zero Zero One's Arrest attack is the heart of the scene.",
+    "location": "A cocaine factory on the Detroit waterfront. The factory floor fills the middle of the table: worktables, chemical drums, piles of product, and an office along the north wall. South of the factory is a fenced yard with the main gate on the south edge. North of the factory is the dock, where Clarence's boat ties up.",
+    "casts": [
+      {
+        "affiliation": "heroic",
+        "role": "attacking",
+        "genre": "action",
+        "ratings": "35",
+        "collect": true,
+        "intro": "The Detroit police, with Metro West's newest officer leading the way. They come in through the gate.",
+        "members": [
+          {
+            "qty": 1,
+            "name": "RoboCop",
+            "profile": "C.O.P. Zero Zero One",
+            "ratings": "10",
+            "arrives": ""
+          },
+          {
+            "qty": 1,
+            "name": "Officer Anne Lewis",
+            "profile": "Lieutenant Anderson",
+            "ratings": "6",
+            "arrives": ""
+          },
+          {
+            "qty": 1,
+            "name": "Sgt. Reed",
+            "profile": "Sarge",
+            "ratings": "3",
+            "arrives": ""
+          },
+          {
+            "qty": 2,
+            "name": "riot officers",
+            "profile": "OCPD Riot Officer",
+            "ratings": "6",
+            "arrives": ""
+          },
+          {
+            "qty": 3,
+            "name": "patrol officers",
+            "profile": "Cop",
+            "ratings": "6",
+            "arrives": ""
+          },
+          {
+            "qty": 1,
+            "name": "Unit 23",
+            "profile": "Squad Car",
+            "ratings": "4",
+            "arrives": ""
+          }
+        ]
+      },
+      {
+        "affiliation": "villainous",
+        "role": "defending",
+        "genre": "action",
+        "ratings": "35",
+        "collect": true,
+        "intro": "Clarence Boddicker's crew and the night shift. They know every drum and doorway on the factory floor.",
+        "members": [
+          {
+            "qty": 1,
+            "name": "Clarence Boddicker",
+            "profile": "Kingpin",
+            "ratings": "10",
+            "arrives": ""
+          },
+          {
+            "qty": 1,
+            "name": "Emil Antonowsky",
+            "profile": "Career Criminal",
+            "ratings": "6",
+            "arrives": ""
+          },
+          {
+            "qty": 1,
+            "name": "Leon Nash",
+            "profile": "Cruel Bully",
+            "ratings": "5",
+            "arrives": ""
+          },
+          {
+            "qty": 1,
+            "name": "Joe Cox",
+            "profile": "Enforcer",
+            "ratings": "3",
+            "arrives": ""
+          },
+          {
+            "qty": 1,
+            "name": "Steve Minh",
+            "profile": "Enforcer",
+            "ratings": "3",
+            "arrives": ""
+          },
+          {
+            "qty": 4,
+            "name": "factory crew",
+            "profile": "Thug",
+            "ratings": "8",
+            "arrives": ""
+          }
+        ]
+      }
+    ],
+    "setup": {
+      "text": "The 3' x 3' playing area is laid out as shown on the map. North is the top of the map.\n\n**The ledgers.** Place objective tokens 1 to 3 in the office along the north wall of the factory, as shown. This episode places them inside the gang's set-up area on purpose, so ignore the usual 12\" distance from start locations.\n\n**Product piles.** Place three markers on the factory floor as shown. They are the product piles (see Snow).\n\n**The gang** defends and sets up first, anywhere inside the factory.\n\n**The police** attack and set up within 3\" of the south edge. Unit 23 sets up in the yard touching the south edge, and any police models can start inside it.",
+      "tokens": "None",
+      "maguffin": ""
+    },
+    "action": "The police picked the night. The gang picked the ground.",
+    "rules": {
+      "initiative": "heroic",
+      "deck": "4",
+      "remove": "",
+      "noDouble": false,
+      "injuries": false,
+      "noGenreCards": false,
+      "noSteal": false
+    },
+    "tokens": {
+      "carry": false,
+      "ordered": false,
+      "who": "",
+      "names": [
+        {
+          "n": "1",
+          "label": "The books: every buyer on the east side"
+        },
+        {
+          "n": "2",
+          "label": "The payroll: every cop on Clarence's list"
+        },
+        {
+          "n": "3",
+          "label": "The Jones file: the phone numbers that lead to OCP"
+        }
+      ]
+    },
+    "special": [
+      {
+        "title": "No VIP",
+        "dice": "None",
+        "rows": [],
+        "text": "This is a Raid without the VIP. Clarence Boddicker is the target, and the defending cast gains no free VIP Extra."
+      },
+      {
+        "title": "Dead or alive",
+        "dice": "None",
+        "rows": [],
+        "text": "The police want Clarence in a cell, not a morgue. Use the normal Captured rules (Core Rulebook, p. 177). A Captured model that is still held when the scene ends counts as removed from play, so a captive Clarence already scores as if he had been killed.\n\n**Book him.** A heroic model holding Clarence captive, in base contact with Unit 23, can spend a special action to put him in the back seat. Remove Clarence from play. He counts as removed, and the heroic cast also scores Clarence booked (see Victory points). If Unit 23 has been removed from play, Clarence cannot be booked."
+      },
+      {
+        "title": "Snow",
+        "dice": "None",
+        "rows": [],
+        "text": "The product piles are scenery, not models, and cannot be targeted.\n\n**Stray rounds.** When a shoot attack against a model within 2\" of a product pile fails, the pile bursts. Every model within 2\" of it receives the Distracted status, then remove the pile.\n\n**A taste of the product.** A villainous model in base contact with a pile can spend a special action to gain one extra action this turn, then receives the Distracted status. Clarence's Marching Powder works as printed and needs no pile."
+      },
+      {
+        "title": "The ledgers",
+        "dice": "None",
+        "rows": [],
+        "text": "Objective tokens 1 to 3 are the ledgers. They are collected as normal (Core Rulebook, p. 67) and score as normal objective tokens. A gang model that collects one has thrown it in the drum fire. It still counts as held by the villainous cast.\n\nClarence's Greed Is Good can drag a ledger 6\" towards him, and he will."
+      },
+      {
+        "title": "The boat",
+        "dice": "None",
+        "rows": [],
+        "text": "From the first Finale script card, Clarence's boat is at the dock. Clarence can leave the playing area across the dock edge (the north edge, as marked on the map) by moving into base contact with it. He does not count as removed from play, and the villainous cast scores Clarence walks. No other model can leave this way."
+      },
+      {
+        "title": "One phone call",
+        "dice": "1D6",
+        "rows": [
+          [
+            "1-4",
+            "**On hold.** Nothing happens yet."
+          ],
+          [
+            "5-6",
+            "**Counsel has arrived.** If Clarence is Captured and has not been booked, he is freed and placed in base contact with his former captor. Either way, Clarence cannot be Captured again this scene."
+          ]
+        ],
+        "text": "Clarence made his call when the first shots went off. In each villainous end phase from the first Finale script card, roll 1D6. Once counsel has arrived, stop rolling. Clarence can still be removed from play, and he can still reach the boat."
+      }
+    ],
+    "directors": [
+      {
+        "name": "Media break",
+        "text": "At the start of Act Two, the villainous player places a Reporter Extra (Core) touching the south edge. It is a cameo (Core Rulebook, pp. 146-147). Whenever a model removes an enemy from play within 12\" and line of sight of the Reporter, its cast gains {PP}. The cast that removes the Reporter from play loses 1 VP."
+      },
+      {
+        "name": "Gas leak",
+        "text": "The furnace on the east side of the factory floor has a cracked gas line. In each end phase from Act Two, roll 1D6. On a 6 it goes up: every model within 3\" of the furnace must pass a Body statistic test or receive the On Fire status."
+      },
+      {
+        "name": "Shoot to kill",
+        "text": "Sgt. Reed has had enough. No model can use an attack with the Captured effect, and Book him and One phone call are not used. Every Star or Co-Star removed from play scores +1 VP more than normal for the cast that removed it."
+      }
+    ],
+    "credits": "The scene ends when one cast has no models left in play or when the script deck runs out after an end phase. Clarence leaving by boat or being booked does not end the scene.",
+    "vp": [
+      {
+        "condition": "Clarence is booked (removed from play in Unit 23)",
+        "who": "Heroic cast",
+        "vp": "+3"
+      },
+      {
+        "condition": "The heroic cast holds all three ledgers when the scene ends",
+        "who": "Heroic cast",
+        "vp": "+1"
+      },
+      {
+        "condition": "Clarence walks (leaves by the boat)",
+        "who": "Villainous cast",
+        "vp": "+3"
+      }
+    ],
+    "vpMode": "add",
+    "dressing": "**Props.** Handcuffs suit the police, and Smoke Bomb and Grenade suit both sides (Core Rulebook, p. 182).\n\n**Terrain.** Worktables, chemical drums, pallets, a drum fire, a chain-link fence around the yard, and a jetty along the north edge.\n\n**Core-only casting.** Play RoboCop as a Grizzled Veteran, Lewis as a Loyal Sidekick (5), Sgt. Reed as a Sarge, then add a police marksman (Sharpshooter, 3), 5 patrol officers (Cop, 10) and Unit 23. Grizzled Veteran has no Captured attack, so any police model in base contact with a Stunned Clarence can spend a special action to give him the Captured status.",
+    "map": {
+      "w": 36,
+      "h": 36,
+      "compass": "up",
+      "labels": {
+        "zone-h": "Police set-up area (the gate)",
+        "zone-v": "Gang set-up area (factory floor)",
+        "exit": "The dock (open from the Finale)",
+        "ruin": "Factory walls and the office",
+        "search": "Product pile",
+        "vehicle": "Unit 23",
+        "crate": "Drums, pallets and cover",
+        "wall": "Yard fence"
+      },
+      "note": "The factory walls have doorways on every side wide enough for models, but not for Unit 23.",
+      "shapes": [
+        {
+          "k": "exit",
+          "x": 6,
+          "y": 0,
+          "w": 24,
+          "h": 1
+        },
+        {
+          "k": "zone-h",
+          "x": 0,
+          "y": 33,
+          "w": 36,
+          "h": 3
+        },
+        {
+          "k": "zone-v",
+          "x": 7,
+          "y": 9,
+          "w": 22,
+          "h": 13
+        },
+        {
+          "k": "ruin",
+          "cx": 18,
+          "cy": 15.5,
+          "w": 24,
+          "h": 15,
+          "rot": 0
+        },
+        {
+          "k": "ruin",
+          "cx": 18,
+          "cy": 11,
+          "w": 20,
+          "h": 4,
+          "rot": 0
+        },
+        {
+          "k": "objective",
+          "cx": 10,
+          "cy": 11,
+          "n": "1"
+        },
+        {
+          "k": "objective",
+          "cx": 18,
+          "cy": 11,
+          "n": "2"
+        },
+        {
+          "k": "objective",
+          "cx": 26,
+          "cy": 11,
+          "n": "3"
+        },
+        {
+          "k": "search",
+          "cx": 12,
+          "cy": 18
+        },
+        {
+          "k": "search",
+          "cx": 18,
+          "cy": 20
+        },
+        {
+          "k": "search",
+          "cx": 24,
+          "cy": 17
+        },
+        {
+          "k": "building",
+          "cx": 31,
+          "cy": 19,
+          "w": 3,
+          "h": 3,
+          "rot": 0,
+          "hz": true
+        },
+        {
+          "k": "label",
+          "cx": 31,
+          "cy": 21.5,
+          "t": "Furnace"
+        },
+        {
+          "k": "crate",
+          "cx": 15,
+          "cy": 15,
+          "w": 3,
+          "h": 1.5,
+          "rot": 0
+        },
+        {
+          "k": "crate",
+          "cx": 21,
+          "cy": 15,
+          "w": 3,
+          "h": 1.5,
+          "rot": 0
+        },
+        {
+          "k": "crate",
+          "cx": 9,
+          "cy": 21,
+          "w": 2,
+          "h": 2,
+          "rot": 0
+        },
+        {
+          "k": "crate",
+          "cx": 27,
+          "cy": 21,
+          "w": 2,
+          "h": 2,
+          "rot": 0
+        },
+        {
+          "k": "road",
+          "cx": 18,
+          "cy": 29.5,
+          "w": 6,
+          "h": 13,
+          "rot": 0
+        },
+        {
+          "k": "wall",
+          "cx": 6,
+          "cy": 25,
+          "w": 12,
+          "h": 0.6,
+          "rot": 0
+        },
+        {
+          "k": "wall",
+          "cx": 30,
+          "cy": 25,
+          "w": 12,
+          "h": 0.6,
+          "rot": 0
+        },
+        {
+          "k": "crate",
+          "cx": 9,
+          "cy": 29,
+          "w": 2,
+          "h": 2,
+          "rot": 0
+        },
+        {
+          "k": "crate",
+          "cx": 27,
+          "cy": 29,
+          "w": 3,
+          "h": 2,
+          "rot": 0
+        },
+        {
+          "k": "crate",
+          "cx": 32,
+          "cy": 31,
+          "w": 2,
+          "h": 2,
+          "rot": 0
+        },
+        {
+          "k": "vehicle",
+          "cx": 6,
+          "cy": 33.5,
+          "w": 2.5,
+          "h": 5,
+          "rot": 90
+        },
+        {
+          "k": "label",
+          "cx": 18,
+          "cy": 2.5,
+          "t": "The dock"
+        },
+        {
+          "k": "label",
+          "cx": 18,
+          "cy": 9.5,
+          "t": "Office"
+        },
+        {
+          "k": "label",
+          "cx": 18,
+          "cy": 31,
+          "t": "Main gate"
+        }
+      ]
+    }
+  }
+}

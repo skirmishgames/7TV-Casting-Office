@@ -1,0 +1,456 @@
+{
+ "app": "7tv-casting-office",
+ "kind": "episode",
+ "version": 1,
+ "doc": {
+  "id": "running-red",
+  "type": "episode",
+  "title": "Running Red",
+  "tagline": "Six minutes. One red light. Two million in unmarked bills.",
+  "genres": [
+   "action",
+   ""
+  ],
+  "basis": "",
+  "synopsisTitle": "Opening crawl",
+  "synopsis": "Every Friday at 4:52, an armoured truck leaves the First Federal vault with the week's takings and runs the same route to the depot across town: two straight blocks, one turn, and the light at Fifth and Main that never stays green.\n\nVincent Kale has timed that light for three months. His crew is in position, the getaway car is idling, and the two guards in the cab are thinking about the weekend. Kale needs the truck stopped, the doors open and the bags gone before the first squad car turns the corner.\n\nAcross town, Lieutenant Ray Hollis is one shift from retirement. His radio is about to ruin his evening.",
+  "production": "Inspired by Heat, Den of Thieves and every Friday-night cop show that opened on an armoured car. The truck runs on rails until someone makes noise; after that it is a chase. Neither side knows when that moment will come, and both want to choose it.",
+  "location": "Downtown at rush hour. A wide street runs east from the bank, turns north at the crossing at Fifth and Main, then runs on to the depot gates at the east edge. Office blocks, parked cars and dumpsters line the route.",
+  "casts": [
+   {
+    "affiliation": "heroic",
+    "role": "defending",
+    "genre": "action",
+    "ratings": "35",
+    "collect": true,
+    "intro": "The truck crew and the police. Only the truck and its two guards are on the street when the scene starts. Hollis and the patrol units are minutes away, and arrive when the alarm goes up.",
+    "members": [
+     {
+      "qty": 2,
+      "name": "truck guards",
+      "profile": "Security Guard",
+      "ratings": "4",
+      "arrives": ""
+     },
+     {
+      "qty": 1,
+      "name": "Lt. Ray Hollis",
+      "profile": "Grizzled Veteran",
+      "ratings": "10",
+      "arrives": "Reserve"
+     },
+     {
+      "qty": 1,
+      "name": "Officer Dana Reyes",
+      "profile": "Loyal Sidekick",
+      "ratings": "5",
+      "arrives": "Reserve"
+     },
+     {
+      "qty": 6,
+      "name": "patrol officers",
+      "profile": "Cop",
+      "ratings": "12",
+      "arrives": "Reserve"
+     },
+     {
+      "qty": 1,
+      "name": "Unit 12",
+      "profile": "Squad Car",
+      "ratings": "4",
+      "arrives": "Reserve"
+     }
+    ]
+   },
+   {
+    "affiliation": "villainous",
+    "role": "attacking",
+    "genre": "action",
+    "ratings": "35",
+    "collect": true,
+    "intro": "Kale's crew: professionals who planned this to the second, and a wheelman who can drive.",
+    "members": [
+     {
+      "qty": 1,
+      "name": "Vincent Kale",
+      "profile": "Mastermind",
+      "ratings": "10",
+      "arrives": ""
+     },
+     {
+      "qty": 1,
+      "name": "Dutch",
+      "profile": "Career Criminal",
+      "ratings": "6",
+      "arrives": ""
+     },
+     {
+      "qty": 2,
+      "name": "hired guns",
+      "profile": "Mercenary",
+      "ratings": "8",
+      "arrives": ""
+     },
+     {
+      "qty": 3,
+      "name": "crew members",
+      "profile": "Thug",
+      "ratings": "6",
+      "arrives": ""
+     },
+     {
+      "qty": 1,
+      "name": "Wheelman",
+      "profile": "Goon",
+      "ratings": "1",
+      "arrives": ""
+     },
+     {
+      "qty": 1,
+      "name": "The getaway car",
+      "profile": "Getaway Car",
+      "ratings": "4",
+      "arrives": ""
+     }
+    ]
+   }
+  ],
+  "setup": {
+   "text": "The 3' x 3' playing area is the route shown on the map. Place the five route markers R1 to R5 as shown. R3 is the crossing at Fifth and Main.\n\n**The truck.** Use the Truck profile card as the armoured truck. It is part of the scene and costs no ratings. Set it up at R1, facing R2, with both guards inside; one is the driver.\n\n**The crew.** The villainous cast sets up in its set-up area along the north edge, and no model may set up within 6\" of a route marker. The getaway car sets up touching the north edge with the wheelman inside.\n\n**The police.** Everyone else in the heroic cast starts in reserve, off the table. See Going loud and The cavalry.",
+   "tokens": "None",
+   "maguffin": ""
+  },
+  "action": "The crew picked the time and the place.",
+  "rules": {
+   "initiative": "villainous",
+   "deck": "4",
+   "remove": "",
+   "noDouble": false,
+   "injuries": false,
+   "noGenreCards": false,
+   "noSteal": false
+  },
+  "tokens": {
+   "carry": true,
+   "ordered": false,
+   "who": "",
+   "names": [
+    {
+     "n": "1",
+     "label": "Cash bag (inside the truck until the doors open)"
+    },
+    {
+     "n": "2",
+     "label": "Cash bag"
+    },
+    {
+     "n": "3",
+     "label": "Cash bag"
+    },
+    {
+     "n": "4",
+     "label": "The maguffin: whatever else was in the vault"
+    }
+   ]
+  },
+  "special": [
+   {
+    "title": "On schedule",
+    "dice": "None",
+    "rows": [],
+    "text": "Until the alarm goes up, the truck drives its route. In every heroic action phase it activates once for free, without spending plot points. Its first action must be a move of up to 6\" (rush-hour traffic) towards the next route marker in order, and it cannot take a second move action. It cannot skip a marker or turn back.\n\nThe guards inside cannot leave the truck while it is on schedule, but can make their free shoot or presence attack each turn as normal. Doing so sets off the alarm."
+   },
+   {
+    "title": "The light at Fifth and Main",
+    "dice": "1D6",
+    "rows": [
+     [
+      "1-3",
+      "**Red.** The truck stops short of R3 and cannot move again this turn. It counts as stopped."
+     ],
+     [
+      "4-6",
+      "**Green.** The truck rolls on as normal."
+     ]
+    ],
+    "text": "Each time the truck's move would bring it into base contact with R3, roll 1D6 before it moves.\n\nA villainous model in base contact with R3 can spend a special action and pass a Mind statistic test to rig the light. The next time the truck reaches R3, the light is red without a roll."
+   },
+   {
+    "title": "Stopping the truck",
+    "dice": "None",
+    "rows": [],
+    "text": "The truck counts as **stopped** while it is Immobilised, for the rest of any turn in which it was held at the light, and for the rest of any turn in which it collided with another vehicle. The crew have three ways to make that happen.\n\n**Block the road.** Park the getaway car, or any vehicle, across the route. A vehicle stops when it touches another vehicle, so the truck makes the opposed collision roll (Core Rulebook, p. 192) and the loser rolls on the vehicle collision table.\n\n**Shoot the tyres.** The first time the truck loses Health to a shoot attack, it also receives the Immobilised status.\n\n**Rig the light.** See The light at Fifth and Main."
+   },
+   {
+    "title": "Going loud",
+    "dice": "None",
+    "rows": [],
+    "text": "The alarm goes up the first time any of these happens: a model attacks the truck or a model of the other cast, the truck is in a collision, or the cargo is breached.\n\nFrom then on the truck is off schedule: it activates normally (spending plot points), moves at full Speed and goes where its driver likes, but it can only leave the playing area at R5. The guards can get out.\n\nStarting with the next heroic action phase, the police come in one model at a time. The first time a reserve model or the squad car is activated, its first action must be a move onto the playing area from the west edge."
+   },
+   {
+    "title": "The cavalry",
+    "dice": "None",
+    "rows": [],
+    "text": "If the alarm has not gone up by the first Act Two script card, the guards have radioed in anyway. At the start of Act Two, set up all heroic reserves within 3\" of the west edge. The truck stays on schedule until the alarm goes up."
+   },
+   {
+    "title": "Breaching the cargo",
+    "dice": "None",
+    "rows": [],
+    "text": "While the truck is stopped, a villainous model in base contact with it can spend a special action and pass a Mind statistic test (the lock) or a Body statistic test (the crowbar) to open the rear doors. If both guards have been removed from play or Captured, no test is needed.\n\nWhen the doors open, place objective tokens 1 to 3 (the cash bags) and 4 (the maguffin) in base contact with the rear of the truck. Models pick up and carry them. Whoever claims token 4 draws a random maguffin card (Core Rulebook, p. 198)."
+   },
+   {
+    "title": "Dye packs",
+    "dice": "1D6",
+    "rows": [
+     [
+      "1",
+      "**Dye pack.** The bag bursts in a cloud of red ink. The carrier receives the Stunned status and the bag is worthless: remove the token from play."
+     ],
+     [
+      "2-6",
+      "**Clean.** The bag is good."
+     ]
+    ],
+    "text": "Some bags are rigged. Roll 1D6 the first time a villainous model picks up each cash bag."
+   },
+   {
+    "title": "The getaway",
+    "dice": "None",
+    "rows": [],
+    "text": "A villainous model carrying a token can leave the playing area across the north edge, or get into the getaway car, which can then leave by any edge. Tokens that leave this way are scored by the villainous cast. The cash bags and token 4 score only as listed under Victory points, never as standard objective tokens or as a held maguffin. Models that leave do not count towards axing, and their cast still gains their plot points.\n\nIf the truck leaves at R5 before its doors are opened, every bag is still inside and the scene ends at once."
+   }
+  ],
+  "directors": [
+   {
+    "name": "Inside man",
+    "text": "Before play, the villainous player secretly writes down which guard is on Kale's payroll. At the start of any villainous activation they can reveal him: he joins the villainous cast, leaves the truck and the truck receives the Immobilised status. If he is removed from play or Captured, the heroic cast gains +1 VP."
+   },
+   {
+    "name": "Escort",
+    "text": "The squad car follows the truck. It sets up touching the west edge with Reyes and two patrol officers inside, and stays on schedule like the truck until the alarm goes up. Those models are no longer in reserve."
+   },
+   {
+    "name": "Hands where I can see them",
+    "text": "Any model that would reduce an enemy Extra to 0 Health while in base contact can give it the Captured status instead (Core Rulebook, p. 176). A Captured model drops whatever it carries."
+   }
+  ],
+  "credits": "The scene ends when one cast has no models left in play, when the script deck runs out, when the truck leaves at R5 with its doors shut, or when every token has left the playing area.",
+  "vp": [
+   {
+    "condition": "Each cash bag carried off the playing area",
+    "who": "Villainous cast",
+    "vp": "+2"
+   },
+   {
+    "condition": "Token 4 carried off the playing area",
+    "who": "Villainous cast",
+    "vp": "+1D3"
+   },
+   {
+    "condition": "The truck leaves at R5 with its doors still shut",
+    "who": "Heroic cast",
+    "vp": "+3"
+   },
+   {
+    "condition": "Each token a heroic model holds when the scene ends",
+    "who": "Heroic cast",
+    "vp": "+1"
+   },
+   {
+    "condition": "The truck was never Immobilised and never in a collision",
+    "who": "Heroic cast",
+    "vp": "+1"
+   }
+  ],
+  "vpMode": "add",
+  "dressing": "**Props.** Grenade, Smoke Bomb and Spare Ammo suit both sides (Core Rulebook, p. 182).\n\n**Terrain.** Parked cars, dumpsters, a newsstand, traffic lights at the crossing.",
+  "map": {
+   "w": 36,
+   "h": 36,
+   "compass": "up",
+   "labels": {
+    "zone-h": "Heroic set-up area and west edge",
+    "zone-v": "Villainous set-up area",
+    "exit": "The depot (R5 exit)",
+    "vehicle": "Truck and getaway car"
+   },
+   "note": "Fill the rest of the table with parked cars and street clutter as cover.",
+   "shapes": [
+    {
+     "k": "zone-v",
+     "x": 0,
+     "y": 0,
+     "w": 36,
+     "h": 6
+    },
+    {
+     "k": "zone-h",
+     "x": 0,
+     "y": 18,
+     "w": 3,
+     "h": 18
+    },
+    {
+     "k": "road",
+     "cx": 10,
+     "cy": 29,
+     "w": 20,
+     "h": 4,
+     "rot": 0
+    },
+    {
+     "k": "road",
+     "cx": 18,
+     "cy": 21,
+     "w": 4,
+     "h": 20,
+     "rot": 0
+    },
+    {
+     "k": "road",
+     "cx": 26,
+     "cy": 13,
+     "w": 20,
+     "h": 4,
+     "rot": 0
+    },
+    {
+     "k": "exit",
+     "x": 35,
+     "y": 10,
+     "w": 1,
+     "h": 6
+    },
+    {
+     "k": "building",
+     "cx": 8.5,
+     "cy": 21.5,
+     "w": 10,
+     "h": 6,
+     "rot": 0
+    },
+    {
+     "k": "building",
+     "cx": 8,
+     "cy": 3.5,
+     "w": 8,
+     "h": 5,
+     "rot": 0
+    },
+    {
+     "k": "building",
+     "cx": 28,
+     "cy": 3.5,
+     "w": 9,
+     "h": 5,
+     "rot": 0
+    },
+    {
+     "k": "building",
+     "cx": 28.5,
+     "cy": 26,
+     "w": 10,
+     "h": 8,
+     "rot": 0
+    },
+    {
+     "k": "building",
+     "cx": 7,
+     "cy": 12,
+     "w": 7,
+     "h": 5,
+     "rot": 0
+    },
+    {
+     "k": "crate",
+     "cx": 22.5,
+     "cy": 24,
+     "w": 2,
+     "h": 2,
+     "rot": 0
+    },
+    {
+     "k": "crate",
+     "cx": 13,
+     "cy": 16,
+     "w": 2,
+     "h": 2,
+     "rot": 0
+    },
+    {
+     "k": "crate",
+     "cx": 32,
+     "cy": 19,
+     "w": 2,
+     "h": 3,
+     "rot": 0
+    },
+    {
+     "k": "vehicle",
+     "cx": 5,
+     "cy": 29,
+     "w": 2.5,
+     "h": 5,
+     "rot": 90
+    },
+    {
+     "k": "vehicle",
+     "cx": 18,
+     "cy": 3,
+     "w": 2.5,
+     "h": 5,
+     "rot": 90
+    },
+    {
+     "k": "waypoint",
+     "cx": 2,
+     "cy": 29,
+     "n": "R1"
+    },
+    {
+     "k": "waypoint",
+     "cx": 10,
+     "cy": 29,
+     "n": "R2"
+    },
+    {
+     "k": "waypoint",
+     "cx": 18,
+     "cy": 21,
+     "n": "R3"
+    },
+    {
+     "k": "waypoint",
+     "cx": 26,
+     "cy": 13,
+     "n": "R4"
+    },
+    {
+     "k": "waypoint",
+     "cx": 34,
+     "cy": 13,
+     "n": "R5"
+    },
+    {
+     "k": "label",
+     "cx": 23.5,
+     "cy": 20,
+     "t": "Fifth & Main"
+    },
+    {
+     "k": "label",
+     "cx": 8.5,
+     "cy": 22,
+     "t": "First Federal"
+    },
+    {
+     "k": "label",
+     "cx": 31,
+     "cy": 9.5,
+     "t": "Depot"
+    }
+   ]
+  }
+ }
+}

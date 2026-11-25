@@ -437,5 +437,11 @@
   }
 
   wire();
-  window.CastUI = { show, state: C };
+  /* a cast as lines for the Writers' Room: each member with its profile name, count and ratings */
+  function describe(c) {
+    const ents = entriesOf(c), res = CastRules.check(c, ents);
+    return { name: c.name, affiliation: c.affiliation, limit: +c.limit || 0, total: res.total,
+      lines: ents.map((e, i) => ({ profile: e.profile ? e.profile.name : '', kind: e.profile ? e.profile.kind : '', qty: e.qty || 0, cost: res.rows[i] ? res.rows[i].cost : 0 })).filter((l) => l.qty > 0 && l.profile) };
+  }
+  window.CastUI = { show, state: C, describe };
 })();

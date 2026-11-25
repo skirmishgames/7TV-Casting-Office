@@ -1,0 +1,399 @@
+{
+  "app": "7tv-casting-office",
+  "kind": "episode",
+  "version": 1,
+  "doc": {
+    "id": "can-you-fly-bobby",
+    "type": "episode",
+    "title": "Can You Fly, Bobby?",
+    "tagline": "Three crates. Military hardware. A friend at OCP who wants the problem gone.",
+    "genres": [
+      "silicondream",
+      "action"
+    ],
+    "basis": "The Steal",
+    "synopsisTitle": "Opening crawl",
+    "synopsis": "Delta City is still a sign on a fence. Behind the fence, on a construction lot in Old Detroit, an OCP truck dropped three crates at the site office an hour ago and drove away without a signature.\n\nThe crates are stencilled for the military. Inside each one is a Cobra assault cannon, a gift from a friend in a corner office who wants a certain police officer taken apart. Clarence Boddicker's van is idling at the east gate.\n\nOfficer Anne Lewis got the tip from a dispatcher who owed her a favour. She brought Sgt. Reed and two patrol officers, and she has called for backup. RoboCop is four minutes out.",
+    "production": "Inspired by RoboCop (1987), where Dick Jones arms Clarence's gang with Cobra cannons. The gang can drive the crates away for points or break one open and fight with what's inside, but an opened crate scores nothing. The police start thin and get their heavy hitter at Act Two. Built for the 80s guide: RoboCop is a Cybernetic Organism, whose Terminate earns plot points for every kill.",
+    "location": "A fenced construction lot at night. The site office stands at the west end with the crates stacked beside it. A tower crane rises in the middle of the lot. A haul road runs west from the east gate, the only way out for a vehicle.",
+    "casts": [
+      {
+        "affiliation": "heroic",
+        "role": "defending",
+        "genre": "silicondream",
+        "ratings": "35",
+        "collect": true,
+        "intro": "Lewis's stakeout is already in the site office. The rest of the police, and RoboCop, roll in at Act Two.",
+        "members": [
+          {
+            "qty": 1,
+            "name": "Officer Anne Lewis",
+            "profile": "Lone Survivor",
+            "ratings": "6",
+            "arrives": ""
+          },
+          {
+            "qty": 1,
+            "name": "Sgt. Reed",
+            "profile": "Police Sergeant",
+            "ratings": "3",
+            "arrives": ""
+          },
+          {
+            "qty": 2,
+            "name": "patrol officers",
+            "profile": "Cop",
+            "ratings": "4",
+            "arrives": ""
+          },
+          {
+            "qty": 1,
+            "name": "RoboCop",
+            "profile": "Cybernetic Organism",
+            "ratings": "10",
+            "arrives": "Act Two"
+          },
+          {
+            "qty": 4,
+            "name": "patrol officers",
+            "profile": "Cop",
+            "ratings": "8",
+            "arrives": "Act Two"
+          },
+          {
+            "qty": 1,
+            "name": "Unit 23",
+            "profile": "Squad Car",
+            "ratings": "4",
+            "arrives": "Act Two"
+          }
+        ]
+      },
+      {
+        "affiliation": "villainous",
+        "role": "attacking",
+        "genre": "action",
+        "ratings": "35",
+        "collect": true,
+        "intro": "Clarence Boddicker's crew, here to pick up a delivery and in no mood to sign for it.",
+        "members": [
+          {
+            "qty": 1,
+            "name": "Clarence Boddicker",
+            "profile": "Kingpin",
+            "ratings": "10",
+            "arrives": ""
+          },
+          {
+            "qty": 1,
+            "name": "Emil Antonowsky",
+            "profile": "Career Criminal",
+            "ratings": "6",
+            "arrives": ""
+          },
+          {
+            "qty": 1,
+            "name": "Leon Nash",
+            "profile": "Cruel Bully",
+            "ratings": "5",
+            "arrives": ""
+          },
+          {
+            "qty": 1,
+            "name": "Joe Cox",
+            "profile": "Enforcer",
+            "ratings": "3",
+            "arrives": ""
+          },
+          {
+            "qty": 1,
+            "name": "Steve Minh",
+            "profile": "Enforcer",
+            "ratings": "3",
+            "arrives": ""
+          },
+          {
+            "qty": 2,
+            "name": "gang members",
+            "profile": "Thug",
+            "ratings": "4",
+            "arrives": ""
+          },
+          {
+            "qty": 1,
+            "name": "The van",
+            "profile": "Van",
+            "ratings": "4",
+            "arrives": ""
+          }
+        ]
+      }
+    ],
+    "setup": {
+      "text": "The 3' x 3' playing area is laid out as shown on the map. North is the top of the map.\n\n**The crates.** Place objective tokens 1 to 3 beside the site office, as shown. They sit closer to the police than the usual 12\" on purpose: the delivery was dropped at the office.\n\n**The stakeout.** The heroic cast defends and sets up first: Lewis, Sgt. Reed and two patrol officers, within 3\" of the west edge or inside the site office. Everyone else in the heroic cast starts off the table (see Backup).\n\n**The gang** attacks and sets up within 3\" of the east edge. Up to six models can start inside the van.",
+      "tokens": "None",
+      "maguffin": ""
+    },
+    "action": "The gang came for the crates, so it moves first.",
+    "rules": {
+      "initiative": "villainous",
+      "deck": "3",
+      "remove": "",
+      "noDouble": false,
+      "injuries": false,
+      "noGenreCards": false,
+      "noSteal": false
+    },
+    "tokens": {
+      "carry": true,
+      "ordered": false,
+      "who": "",
+      "names": [
+        {
+          "n": "1",
+          "label": "Crate: one Cobra assault cannon"
+        },
+        {
+          "n": "2",
+          "label": "Crate: one Cobra assault cannon"
+        },
+        {
+          "n": "3",
+          "label": "Crate: one Cobra assault cannon"
+        }
+      ]
+    },
+    "special": [
+      {
+        "title": "No maguffin",
+        "dice": "None",
+        "rows": [],
+        "text": "This is a Steal without a maguffin. The crates take its place, and the winner of initiative does not draw one."
+      },
+      {
+        "title": "Strapped down",
+        "dice": "None",
+        "rows": [],
+        "text": "The crates are banded to a pallet. The first time any model tries to pick up each crate, it must pass a Body statistic test as part of the special action. If it fails, the special action is spent and the crate stays put. Once a crate has been picked up, no more tests are needed for it."
+      },
+      {
+        "title": "Load the van",
+        "dice": "None",
+        "rows": [],
+        "text": "A villainous model carrying a crate, in base contact with the van, can spend a special action to load it. Put the token on the van's profile card. The crate stays with the van. If the van is removed from play, place every crate it holds adjacent to the wreck.\n\nThe van can leave the playing area through the east gate. Crates it carries out score Crate driven off (see Victory points), never as held objective tokens. Occupants leave with it: they do not count as removed from play or towards axing. The van cannot come back."
+      },
+      {
+        "title": "Open it",
+        "dice": "None",
+        "rows": [],
+        "text": "Any model carrying a crate, or in base contact with one that nobody carries, can spend a special action to break it open. Remove the crate from play: it no longer scores. The model gains this attack for the rest of the scene:\n\n**Cobra Assault Cannon.** Shoot attack, range 18\", Strike: Shoot +3, Unwieldy, Blast 3\", -1D3 Health.\n\nUnwieldy means the carrier cannot fire it after moving this turn, and cannot move after firing (Core Rulebook, p. 173). An occupant of a vehicle can never fire a Cobra. No more than two crates can be opened this scene.\n\nIf a model with a Cobra is removed from play, place a marker where it stood. Any model in base contact can spend a special action to take the Cobra."
+      },
+      {
+        "title": "Backup",
+        "dice": "None",
+        "rows": [],
+        "text": "On the first Act Two script card, RoboCop, the four reserve patrol officers and Unit 23 arrive. The first time each one activates, its first action must be a move onto the playing area from the west edge. Officers can arrive already inside Unit 23."
+      }
+    ],
+    "directors": [
+      {
+        "name": "Sal's boys",
+        "text": "A rival crew heard about the delivery too. On the first Act Two script card, the player on screen places three Thug models touching the north edge, level with the crane. They are cameos (Core Rulebook, pp. 146-147). The cast that removes each one scores the usual VP for removing a cameo."
+      },
+      {
+        "name": "The crane",
+        "text": "A model in base contact with the crane cab can spend a special action and pass a Mind statistic test to swing the hook. Move one crate that nobody carries up to 6\" in any direction. It cannot be moved off the playing area or into the van."
+      },
+      {
+        "name": "The dud",
+        "text": "Jones's people padded the order. Place objective token 4 as a fourth crate, as shown, and shuffle four face-down markers, one marked as the dud, then put one under each crate. Reveal a crate's marker when it is opened or when the scene ends. An opened dud gives no Cobra but still counts towards the limit of two. A dud scores nothing."
+      }
+    ],
+    "credits": "The scene ends when one cast has no models left in play or when the script deck runs out after an end phase. The van leaving does not end the scene: whoever stays behind keeps fighting.",
+    "vp": [
+      {
+        "condition": "Each crate driven off in the van",
+        "who": "Villainous cast",
+        "vp": "+2"
+      },
+      {
+        "condition": "The van is removed from play",
+        "who": "Heroic cast",
+        "vp": "+2"
+      }
+    ],
+    "vpMode": "add",
+    "dressing": "**Props.** Spare Ammo and Smoke Bomb suit both sides (Core Rulebook, p. 182).\n\n**Terrain.** A site office or portable cabin, a tower crane, stacked girders and pallets, rubble heaps, a chain-link fence along the east edge with a gate. Lewis's Doomsday Prepper works well with the site office as its chosen scenery.\n\n**Core-only casting.** Play RoboCop as a Grizzled Veteran (10) and Sgt. Reed as a Sarge (3). Lewis is already a Core profile. Backup lets him bring 1D3 officers forward with him as he arrives.",
+    "map": {
+      "w": 36,
+      "h": 36,
+      "compass": "up",
+      "labels": {
+        "zone-h": "Stakeout set-up area (west edge)",
+        "zone-v": "Gang set-up area (east edge)",
+        "exit": "East gate (the van's only exit)",
+        "building": "Site office",
+        "platform": "Crane cab",
+        "vehicle": "The van",
+        "crate": "Girders, pallets and cover",
+        "rough": "Rubble heap",
+        "wall": "Perimeter fence"
+      },
+      "note": "Token 4 is used only with The dud director's cut.",
+      "shapes": [
+        {
+          "k": "zone-h",
+          "x": 0,
+          "y": 0,
+          "w": 3,
+          "h": 36
+        },
+        {
+          "k": "zone-v",
+          "x": 33,
+          "y": 0,
+          "w": 3,
+          "h": 36
+        },
+        {
+          "k": "exit",
+          "x": 35,
+          "y": 15,
+          "w": 1,
+          "h": 6
+        },
+        {
+          "k": "road",
+          "cx": 26,
+          "cy": 18,
+          "w": 20,
+          "h": 5,
+          "rot": 0
+        },
+        {
+          "k": "building",
+          "cx": 5,
+          "cy": 18,
+          "w": 5,
+          "h": 7,
+          "rot": 0
+        },
+        {
+          "k": "objective",
+          "cx": 12,
+          "cy": 12,
+          "n": "1"
+        },
+        {
+          "k": "objective",
+          "cx": 12,
+          "cy": 18,
+          "n": "2"
+        },
+        {
+          "k": "objective",
+          "cx": 12,
+          "cy": 24,
+          "n": "3"
+        },
+        {
+          "k": "objective",
+          "cx": 19,
+          "cy": 27,
+          "n": "4"
+        },
+        {
+          "k": "platform",
+          "cx": 19,
+          "cy": 8,
+          "w": 4,
+          "h": 4,
+          "rot": 0,
+          "ht": 3
+        },
+        {
+          "k": "crate",
+          "cx": 20,
+          "cy": 13.5,
+          "w": 4,
+          "h": 1.5,
+          "rot": 0
+        },
+        {
+          "k": "crate",
+          "cx": 24,
+          "cy": 25,
+          "w": 2,
+          "h": 3,
+          "rot": 0
+        },
+        {
+          "k": "crate",
+          "cx": 28,
+          "cy": 10,
+          "w": 3,
+          "h": 2,
+          "rot": 0
+        },
+        {
+          "k": "crate",
+          "cx": 8,
+          "cy": 30,
+          "w": 2,
+          "h": 2,
+          "rot": 0
+        },
+        {
+          "k": "rough",
+          "cx": 9,
+          "cy": 5,
+          "w": 6,
+          "h": 4
+        },
+        {
+          "k": "rough",
+          "cx": 28,
+          "cy": 30,
+          "w": 6,
+          "h": 4
+        },
+        {
+          "k": "wall",
+          "cx": 35.5,
+          "cy": 7.5,
+          "w": 15,
+          "h": 0.6,
+          "rot": 90
+        },
+        {
+          "k": "wall",
+          "cx": 35.5,
+          "cy": 28.5,
+          "w": 15,
+          "h": 0.6,
+          "rot": 90
+        },
+        {
+          "k": "vehicle",
+          "cx": 31,
+          "cy": 18,
+          "w": 2.5,
+          "h": 5,
+          "rot": 90
+        },
+        {
+          "k": "label",
+          "cx": 19,
+          "cy": 5,
+          "t": "Tower crane"
+        },
+        {
+          "k": "label",
+          "cx": 26,
+          "cy": 21.5,
+          "t": "Haul road"
+        }
+      ]
+    }
+  }
+}

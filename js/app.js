@@ -1085,6 +1085,8 @@
     if (v === 'props' && window.PropsUI) window.PropsUI.show();
     if (v === 'index' && window.IndexUI) window.IndexUI.show();
     if (v === 'episodes' && window.EpisodesUI) window.EpisodesUI.show();
+    if (v === 'writers' && window.WritersRoom) window.WritersRoom.show();
+    if (v === 'shows' && window.ShowsUI) window.ShowsUI.show();
   }
 
   let toastT = 0;
@@ -1098,6 +1100,7 @@
     buildDatalists();
     wireForm(); wirePortrait(); wireWizard(); wireLibrary(); wireCards(); wirePrint();
     $$('.tab').forEach((t) => t.addEventListener('click', () => showView(t.dataset.view)));
+    document.addEventListener('click', (e) => { const a = e.target.closest('[data-goto]'); if (a) { e.preventDefault(); showView(a.dataset.goto); window.scrollTo(0, 0); } });
     const setThemeLabel = () => { const dark = document.documentElement.dataset.theme === 'dark'; $('#btnTheme').textContent = dark ? 'Light mode' : 'Dark mode'; $('#btnTheme').setAttribute('aria-pressed', dark); };
     setThemeLabel();
     $('#btnTheme').addEventListener('click', () => {
@@ -1132,5 +1135,5 @@
     openCard(blankCard('star', S.lastSet), false);
   }
   window.App = { S, openCard, openProfile, cardFromProfile, blankCard, renderCardImages, toast, showView, refreshSaved, printCast, confirmDiscard, esc, uid, loadImg, readImageFile };
-  boot();
+  boot().then(() => { if (window.ShowsUI) window.ShowsUI.fromHash(); });
 })();

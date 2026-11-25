@@ -1,6 +1,6 @@
 /* IndexedDB storage for saved cards, plus JSON backup export and import. */
 (function () {
-  const DB = 'seventv-card-maker', VER = 2, STORE = 'cards', META = 'meta', CASTS = 'casts';
+  const DB = 'seventv-card-maker', VER = 3, STORE = 'cards', META = 'meta', CASTS = 'casts', EPISODES = 'episodes';
   let dbp = null;
   function db() {
     if (dbp) return dbp;
@@ -11,6 +11,7 @@
         if (!d.objectStoreNames.contains(STORE)) d.createObjectStore(STORE, { keyPath: 'id' });
         if (!d.objectStoreNames.contains(META)) d.createObjectStore(META);
         if (!d.objectStoreNames.contains(CASTS)) d.createObjectStore(CASTS, { keyPath: 'id' });
+        if (!d.objectStoreNames.contains(EPISODES)) d.createObjectStore(EPISODES, { keyPath: 'id' });
       };
       r.onsuccess = () => res(r.result);
       r.onerror = () => rej(r.error);
@@ -34,13 +35,17 @@
     casts: () => tx(CASTS, 'readonly', (s) => s.getAll()).then((r) => (r || []).sort((a, b) => (b.updatedAt || 0) - (a.updatedAt || 0))),
     putCast: (c) => { c.updatedAt = Date.now(); return tx(CASTS, 'readwrite', (s) => s.put(c)).then(() => c); },
     removeCast: (id) => tx(CASTS, 'readwrite', (s) => s.delete(id)),
+    /* Writers' Room: your own episodes and tropes */
+    episodes: () => tx(EPISODES, 'readonly', (s) => s.getAll()).then((r) => (r || []).sort((a, b) => (b.updatedAt || 0) - (a.updatedAt || 0))),
+    putEpisode: (e) => { e.updatedAt = Date.now(); if (!e.createdAt) e.createdAt = e.updatedAt; return tx(EPISODES, 'readwrite', (s) => s.put(e)).then(() => e); },
+    removeEpisode: (id) => tx(EPISODES, 'readwrite', (s) => s.delete(id)),
     getMeta: (k) => tx(META, 'readonly', (s) => s.get(k)),
     setMeta: (k, v) => tx(META, 'readwrite', (s) => s.put(v, k)),
     async exportJSON() {
-      const cards = await Store.all(); const casts = await Store.casts();
+      const cards = await Store.all(); const casts = await Store.casts(); const episodes = await Store.episodes();
       const defaultBadge = await Store.getMeta('defaultBadge').catch(() => null);
       const propBack = await Store.getMeta('propBack').catch(() => null);
-      return JSON.stringify({ app: '7tv-card-maker', version: 2, exportedAt: new Date().toISOString(), cards, casts, settings: { defaultBadge: defaultBadge || null, propBack: propBack || null } }, null, 1);
+      return JSON.stringify({ app: '7tv-card-maker', version: 3, exportedAt: new Date().toISOString(), cards, casts, episodes, settings: { defaultBadge: defaultBadge || null, propBack: propBack || null } }, null, 1);
     },
     async importJSON(text) {
       const data = JSON.parse(text);
@@ -49,6 +54,7 @@
       let n = 0;
       for (const c of cards) { if (c && c.id && c.name !== undefined) { await tx(STORE, 'readwrite', (s) => s.put(c)); n++; } }
       for (const c of (data.casts || [])) { if (c && c.id && Array.isArray(c.members)) await tx(CASTS, 'readwrite', (s) => s.put(c)); }
+      for (const e of (data.episodes || [])) { if (e && e.id && (e.type === 'episode' || e.type === 'trope')) await tx(EPISODES, 'readwrite', (s) => s.put(e)); }
       if (data.settings && typeof data.settings.defaultBadge === 'string' && data.settings.defaultBadge.startsWith('data:image')) await Store.setMeta('defaultBadge', data.settings.defaultBadge);
       if (data.settings && typeof data.settings.propBack === 'string' && data.settings.propBack.startsWith('data:image')) await Store.setMeta('propBack', data.settings.propBack);
       return n;

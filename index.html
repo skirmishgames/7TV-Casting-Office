@@ -11,8 +11,8 @@
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=3">
 <meta name="apple-mobile-web-app-title" content="Casting Office">
 <meta name="theme-color" content="#9e2b2b">
-<link rel="stylesheet" href="css/fonts.css?v=202611161358">
-<link rel="stylesheet" href="css/styles.css?v=202611161358">
+<link rel="stylesheet" href="css/fonts.css?v=202611250419">
+<link rel="stylesheet" href="css/styles.css?v=202611250419">
 <script>try { document.documentElement.dataset.theme = localStorage.getItem('seventv-theme') === 'dark' ? 'dark' : 'light'; } catch (e) { document.documentElement.dataset.theme = 'light'; }</script>
 </head>
 <body>
@@ -33,7 +33,9 @@
     <button role="tab" data-view="genres" class="tab">Genres</button>
     <button role="tab" data-view="reference" class="tab">Reference</button>
     <button role="tab" data-view="index" class="tab">Index</button>
-    <button role="tab" data-view="episodes" class="tab">Episodes</button>
+    <button role="tab" data-view="shows" class="tab">Episodes</button>
+    <button role="tab" data-view="episodes" class="tab">Episode Guide</button>
+    <button role="tab" data-view="writers" class="tab">Writers' Room</button>
     <button role="tab" data-view="about" class="tab">About</button>
   </nav>
   <button id="btnTheme" class="btn btn-ghost theme-btn" type="button">Dark mode</button>
@@ -586,11 +588,22 @@
     </div>
   </section>
 
+  <section id="view-shows" class="view">
+    <div class="index-page">
+      <div class="panel ix-panel">
+        <div class="gp-head"><h2>Episodes</h2><span class="gp-count" id="shCount"></span></div>
+        <p class="ix-intro">New episodes written for this site, free to play and print, in suggested play order. Each one is a full script with casts, set up, map, special rules and victory points. An episode is marked <b>Playtested</b> after 3 playtests. Until then it shows <b>Needs playtest</b>: play one and send feedback so it can be tuned. The episodes from the books are in the <a href="#" data-goto="episodes">Episode Guide</a>, and you can write your own in the <a href="#" data-goto="writers">Writers' Room</a>.</p>
+        <div id="shFilters" class="sh-filters"></div>
+        <div id="shList" class="sh-list"></div>
+      </div>
+    </div>
+  </section>
+
   <section id="view-episodes" class="view">
     <div class="index-page">
       <div class="panel ix-panel">
-        <div class="gp-head"><h2>Episodes and tropes</h2><span class="gp-count" id="epCount"></span></div>
-        <p class="ix-intro">Browse what each episode and trope in the Core Rulebook and the 80s book is about, then turn to its page for the set up and rules. The summaries are short paraphrases, not the books' text.</p>
+        <div class="gp-head"><h2>Episode guide</h2><span class="gp-count" id="epCount"></span></div>
+        <p class="ix-intro">Browse what each episode and trope in the Core Rulebook and the 80s book is about, then turn to its page for the set up and rules. The summaries are short paraphrases, not the books' text. For new episodes written for this site, see <a href="#" data-goto="shows">Episodes</a>. To write your own, open the <a href="#" data-goto="writers">Writers' Room</a>.</p>
         <div class="gp-filters">
           <div class="seg" id="epKind" role="group" aria-label="Show"><button data-kind="episodes" class="is-on">Episodes</button><button data-kind="tropes">Tropes</button></div>
           <input type="search" id="epSearch" placeholder="Search titles and summaries: bomb, vampires, heist" aria-label="Search episodes and tropes">
@@ -600,6 +613,21 @@
         <p class="hint" id="epGenreNote" hidden>Open play episodes suit any genre, so they always show.</p>
         <div id="epList" class="ix-list"></div>
       </div>
+    </div>
+  </section>
+
+  <section id="view-writers" class="view">
+    <div class="wr-page">
+      <aside class="panel wr-side">
+        <h2>Writers' Room</h2>
+        <p class="hint">Your own episodes and tropes, saved in this browser and in the backup file.</p>
+        <div class="row wrap"><button type="button" id="wrNewEp" class="btn btn-primary btn-small">New episode</button><button type="button" id="wrNewTrope" class="btn btn-ghost btn-small">New trope</button></div>
+        <div class="row wrap"><label class="btn btn-ghost btn-small file-btn">Import<input type="file" id="wrImport" accept=".json,application/json"></label><button type="button" id="wrSparkBtn" class="btn btn-ghost btn-small">Roll a spark</button></div>
+        <div id="wrSpark"></div>
+        <div class="seg" id="wrFilter" role="group" aria-label="Show"><button data-f="" class="is-on">All</button><button data-f="episode">Episodes</button><button data-f="trope">Tropes</button></div>
+        <ul id="wrList" class="wr-list"></ul>
+      </aside>
+      <div id="wrEditor" class="wr-main"></div>
     </div>
   </section>
 
@@ -634,7 +662,7 @@
       <div class="panel about-notes">
         <h2>Good to know</h2>
         <ul>
-          <li>Your cards and casts are saved in this browser only. Nothing is uploaded. Use Export backup in My Cards to keep a copy or move to another computer.</li>
+          <li>Your cards, casts, episodes and tropes are saved in this browser only. Nothing is uploaded. Use Export backup in My Cards to keep a copy or move to another computer.</li>
           <li>Cards print at 63.5 x 88 mm, the size of standard card sleeves. Print the PDF at 100% (actual size).</li>
           <li>Headings use League Gothic, numbers Anton and card text PT Sans Narrow, free stand-ins for the fonts on the printed cards. Frames and icons are drawn by the app, apart from the genre symbols.</li>
           <li>The binder divider icons come from <a href="https://game-icons.net" target="_blank" rel="noopener">game-icons.net</a> by Lorc, Delapouite and contributors, under <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener">CC BY 3.0</a>.</li>
@@ -708,30 +736,34 @@
 
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
-<script src="js/vendor/jspdf.umd.min.js?v=202611161358"></script>
-<script src="js/data/rules.js?v=202611161358"></script>
-<script src="js/data/profiles.js?v=202611161358"></script>
-<script src="js/data/profiles-stubs.js?v=202611161358"></script>
-<script src="js/data/special-effects.js?v=202611161358"></script>
-<script src="js/data/units.js?v=202611161358"></script>
-<script src="js/data/genres-info.js?v=202611161358"></script>
-<script src="js/data/movies.js?v=202611161358"></script>
-<script src="js/data/book-index.js?v=202611161358"></script>
-<script src="js/data/episodes.js?v=202611161358"></script>
-<script src="js/data/roles.js?v=202611161358"></script>
-<script src="js/prop-render.js?v=202611161358"></script>
-<script src="js/card-render.js?v=202611161358"></script>
-<script src="js/ratings.js?v=202611161358"></script>
-<script src="js/cast-rules.js?v=202611161358"></script>
-<script src="js/card-store.js?v=202611161358"></script>
-<script src="js/data/binder.js?v=202611161358"></script>
-<script src="js/dividers.js?v=202611161358"></script>
-<script src="js/print.js?v=202611161358"></script>
-<script src="js/app.js?v=202611161358"></script>
-<script src="js/props.js?v=202611161358"></script>
-<script src="js/genres.js?v=202611161358"></script>
-<script src="js/index-page.js?v=202611161358"></script>
-<script src="js/episodes-page.js?v=202611161358"></script>
-<script src="js/cast.js?v=202611161358"></script>
+<script src="js/vendor/jspdf.umd.min.js?v=202611250419"></script>
+<script src="js/data/rules.js?v=202611250419"></script>
+<script src="js/data/profiles.js?v=202611250419"></script>
+<script src="js/data/profiles-stubs.js?v=202611250419"></script>
+<script src="js/data/special-effects.js?v=202611250419"></script>
+<script src="js/data/units.js?v=202611250419"></script>
+<script src="js/data/genres-info.js?v=202611250419"></script>
+<script src="js/data/movies.js?v=202611250419"></script>
+<script src="js/data/book-index.js?v=202611250419"></script>
+<script src="js/data/episodes.js?v=202611250419"></script>
+<script src="js/data/roles.js?v=202611250419"></script>
+<script src="js/prop-render.js?v=202611250419"></script>
+<script src="js/card-render.js?v=202611250419"></script>
+<script src="js/ratings.js?v=202611250419"></script>
+<script src="js/cast-rules.js?v=202611250419"></script>
+<script src="js/card-store.js?v=202611250419"></script>
+<script src="js/data/binder.js?v=202611250419"></script>
+<script src="js/dividers.js?v=202611250419"></script>
+<script src="js/print.js?v=202611250419"></script>
+<script src="js/app.js?v=202611250419"></script>
+<script src="js/props.js?v=202611250419"></script>
+<script src="js/genres.js?v=202611250419"></script>
+<script src="js/index-page.js?v=202611250419"></script>
+<script src="js/episodes-page.js?v=202611250419"></script>
+<script src="js/cast.js?v=202611250419"></script>
+<script src="js/data/writers-room.js?v=202611250419"></script>
+<script src="js/data/site-episodes.js?v=202611250419"></script>
+<script src="js/shows-page.js?v=202611250419"></script>
+<script src="js/writers-room.js?v=202611250419"></script>
 </body>
 </html>
