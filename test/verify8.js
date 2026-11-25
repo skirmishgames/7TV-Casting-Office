@@ -9,7 +9,7 @@ const assert = (c, m) => { if (!c) throw new Error('FAIL: ' + m); console.log('o
   await p.goto(base); await p.waitForTimeout(700);
 
   assert(await p.textContent('.tab[data-view="shows"]') === 'Episodes' && await p.textContent('.tab[data-view="episodes"]') === 'Episode Guide', 'tabs read Episodes and Episode Guide');
-  await p.click('.tab[data-view="shows"]'); await p.waitForTimeout(600);
+  await p.evaluate(() => App.showView('shows')); await p.waitForTimeout(600);
   const n = await p.evaluate(() => window.SEVENTV_SHOWS.list.length);
   assert((await p.$$('.sh-card')).length === n, 'every listed episode has a card');
   assert(await p.isVisible('.sh-card .sh-thumb svg.wr-map'), 'cards show the map');

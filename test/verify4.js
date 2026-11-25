@@ -6,7 +6,7 @@ const assert = (c, m) => { if (!c) throw new Error('FAIL: ' + m); console.log('o
   const b = await chromium.launch(); const errs = [];
   const p = await (await b.newContext({ viewport: { width: 1440, height: 950 } })).newPage();
   p.on('pageerror', (e) => errs.push(e.message)); p.on('dialog', (d) => d.accept());
-  await p.goto(base); await p.waitForTimeout(700);
+  await p.goto(base + '#designer'); await p.waitForTimeout(700);
 
   const unstamped = await p.evaluate(() => [...document.querySelectorAll('script[src^="js/"], link[rel="stylesheet"][href^="css/"]')].map((e) => e.getAttribute('src') || e.getAttribute('href')).filter((u) => !/\?v=\d+/.test(u)));
   assert(unstamped.length === 0, 'local scripts and styles carry a version stamp ' + unstamped.join(', '));
@@ -41,7 +41,7 @@ const assert = (c, m) => { if (!c) throw new Error('FAIL: ' + m); console.log('o
   await p.fill('#roleSearch', ''); await p.click('#dlgNew .dlg-head button');
 
   // units
-  await p.click('.tab[data-view="cast"]'); await p.waitForTimeout(500);
+  await p.evaluate(() => App.showView('cast')); await p.waitForTimeout(500);
   await p.click('#btnCastNew'); await p.waitForTimeout(300);
   await p.selectOption('#cAff', 'heroic');
   await p.click('#addSource [data-src="units"]'); await p.waitForTimeout(200);
@@ -60,7 +60,7 @@ const assert = (c, m) => { if (!c) throw new Error('FAIL: ' + m); console.log('o
   await ms.locator('.u-row[data-slot="2"] [data-uact="plus"]').click(); await p.waitForTimeout(200);
   assert(/7 each/.test(await ms.locator('.u-row[data-slot="2"] .m-meta').textContent()), 'or-choice swaps Killer Robot for Heavy Weapons Team');
   await p.waitForTimeout(600); await p.reload(); await p.waitForTimeout(700);
-  await p.click('.tab[data-view="cast"]'); await p.waitForTimeout(500);
+  await p.evaluate(() => App.showView('cast')); await p.waitForTimeout(500);
   assert((await p.$$eval('.unit', (x) => x.length)) === 2, 'units are saved with the cast');
   await p.locator('.unit').nth(1).locator('[data-uact="del"]').first().click(); await p.waitForTimeout(200);
   assert((await p.$$eval('.unit', (x) => x.length)) === 1, 'remove unit');
@@ -77,11 +77,11 @@ const assert = (c, m) => { if (!c) throw new Error('FAIL: ' + m); console.log('o
   assert(err.gvPower && !err.gvQuick, 'errata: Grizzled Veteran has Power Behind The Throne, not Quickdraw');
   assert(err.hgMil && !err.hgLeader, 'errata: Hardened Grunt has Military Training, no Unit Leader text');
 
-  await p.click('.tab[data-view="about"]'); await p.waitForTimeout(200);
+  await p.evaluate(() => App.showView('about')); await p.waitForTimeout(200);
   assert(/Karl Perrotto/.test(await p.textContent('#aboutErrata')) && /Power Behind The Throne/.test(await p.textContent('#aboutErrata')), 'About lists the errata');
 
   // reference tab
-  await p.click('.tab[data-view="reference"]'); await p.waitForTimeout(300);
+  await p.evaluate(() => App.showView('reference')); await p.waitForTimeout(300);
   assert(await p.isVisible('#view-reference .qref-grid'), 'Reference tab shows the quick reference');
   assert((await p.$$eval('#view-reference .q-step', (x) => x.length)) === 10, 'all 10 setup steps on screen');
   const pdf = await p.evaluate(async () => { const r = await fetch(document.querySelector('.qref-dl').getAttribute('href')); const b = await r.arrayBuffer(); return { ok: r.ok, head: String.fromCharCode(...new Uint8Array(b.slice(0, 5))), size: b.byteLength }; });
@@ -90,9 +90,9 @@ const assert = (c, m) => { if (!c) throw new Error('FAIL: ' + m); console.log('o
 
   // phone
   const ph = await (await b.newContext({ viewport: { width: 390, height: 844 } })).newPage(); ph.on('pageerror', (e) => errs.push(e.message));
-  await ph.goto(base); await ph.waitForTimeout(700); await ph.click('.tab[data-view="cast"]'); await ph.waitForTimeout(500);
+  await ph.goto(base + '#designer'); await ph.waitForTimeout(700); await ph.evaluate(() => App.showView('cast')); await ph.waitForTimeout(500);
   assert((await ph.evaluate(() => document.documentElement.scrollWidth)) <= 390, 'phone: no sideways scroll with units');
-  await ph.click('.tab[data-view="reference"]'); await ph.waitForTimeout(300);
+  await ph.evaluate(() => App.showView('reference')); await ph.waitForTimeout(300);
   assert((await ph.evaluate(() => document.documentElement.scrollWidth)) <= 390, 'phone: no sideways scroll on Reference');
   assert(errs.length === 0, 'no page errors ' + JSON.stringify(errs));
   await b.close();

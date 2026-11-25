@@ -11,11 +11,33 @@
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=3">
 <meta name="apple-mobile-web-app-title" content="Casting Office">
 <meta name="theme-color" content="#9e2b2b">
-<link rel="stylesheet" href="css/fonts.css?v=202611250419">
-<link rel="stylesheet" href="css/styles.css?v=202611250419">
+<link rel="stylesheet" href="css/fonts.css?v=202611251709">
+<link rel="stylesheet" href="css/styles.css?v=202611251709">
 <script>try { document.documentElement.dataset.theme = localStorage.getItem('seventv-theme') === 'dark' ? 'dark' : 'light'; } catch (e) { document.documentElement.dataset.theme = 'light'; }</script>
 </head>
 <body>
+<svg class="icon-sprite" width="0" height="0" aria-hidden="true">
+  <defs>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M8 2.5l4 4 4-4"/><rect x="2.5" y="6.5" width="19" height="14" rx="3"/><rect x="5.5" y="9.5" width="10" height="8" rx="1.5"/><path d="M18.5 10.5v.01M18.5 14.5v.01"/></symbol>
+    <symbol id="i-cards" viewBox="0 0 24 24"><rect x="8" y="2.5" width="12.5" height="16.5" rx="2"/><path d="M5 6v13.5a2 2 0 0 0 2 2h9.5"/><path d="M14.25 7.2l1 2.1 2.2.3-1.6 1.5.4 2.2-2-1-2 1 .4-2.2-1.6-1.5 2.2-.3z"/></symbol>
+    <symbol id="i-casting" viewBox="0 0 24 24"><rect x="4.5" y="2.5" width="15" height="19" rx="2"/><circle cx="12" cy="9.5" r="3"/><path d="M7.5 17.5c1-2.2 2.6-3.2 4.5-3.2s3.5 1 4.5 3.2"/></symbol>
+    <symbol id="i-stack" viewBox="0 0 24 24"><rect x="3" y="7" width="12" height="14" rx="2"/><path d="M7 7V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-4"/></symbol>
+    <symbol id="i-props" viewBox="0 0 24 24"><rect x="2.5" y="7" width="19" height="13" rx="2"/><path d="M8.5 7V5a1.5 1.5 0 0 1 1.5-1.5h4A1.5 1.5 0 0 1 15.5 5v2M2.5 12.5h19M10.5 12.5v2h3v-2"/></symbol>
+    <symbol id="i-print" viewBox="0 0 24 24"><path d="M6.5 9V3h11v6"/><rect x="2.5" y="9" width="19" height="8.5" rx="2"/><rect x="6.5" y="14" width="11" height="7.5"/></symbol>
+    <symbol id="i-callsheet" viewBox="0 0 24 24"><rect x="4.5" y="4" width="15" height="17.5" rx="2"/><path d="M9 4V2.5h6V4M8.5 10h1M12 10h3.5M8.5 14h1M12 14h3.5M8.5 18h1M12 18h3.5"/></symbol>
+    <symbol id="i-clapper" viewBox="0 0 24 24"><path d="M3 10h18v9.5a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 19.5z"/><path d="M3 10l-.6-3.4a1.5 1.5 0 0 1 1.2-1.7l14.8-2.6a1.5 1.5 0 0 1 1.7 1.2L20.7 6.9z"/><path d="M7.5 4.5l2.6 3.8M13.3 3.5l2.6 3.8"/></symbol>
+    <symbol id="i-pen" viewBox="0 0 24 24"><path d="M4 20l1-4.5L16 4.5a2.1 2.1 0 0 1 3 3L8 18.5z"/><path d="M14 6.5l3 3M4 20h16"/></symbol>
+    <symbol id="i-guide" viewBox="0 0 24 24"><path d="M2.5 5h6a3.5 3.5 0 0 1 3.5 3.5V20a2.5 2.5 0 0 0-2.5-2.5h-7zM21.5 5h-6A3.5 3.5 0 0 0 12 8.5V20a2.5 2.5 0 0 1 2.5-2.5h7z"/></symbol>
+    <symbol id="i-rules" viewBox="0 0 24 24"><path d="M4.5 18.5V5a2.5 2.5 0 0 1 2.5-2.5h12.5v15H7a2.5 2.5 0 0 0-2.5 2.5A2.5 2.5 0 0 0 7 22.5h12.5"/><path d="M9 7.5h6.5M9 11h4"/></symbol>
+    <symbol id="i-die" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="3.5"/><circle cx="8.5" cy="8.5" r="1.3" class="dot"/><circle cx="15.5" cy="15.5" r="1.3" class="dot"/><circle cx="12" cy="12" r="1.3" class="dot"/><circle cx="15.5" cy="8.5" r="1.3" class="dot"/><circle cx="8.5" cy="15.5" r="1.3" class="dot"/></symbol>
+    <symbol id="i-reel" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><circle cx="12" cy="12" r="1.2"/><circle cx="12" cy="6.5" r="2"/><circle cx="12" cy="17.5" r="2"/><circle cx="6.5" cy="12" r="2"/><circle cx="17.5" cy="12" r="2"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5l5 5"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6M12 7.5v.01"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20.5 14.5A8.5 8.5 0 1 1 9.5 3.5a7 7 0 0 0 11 11z"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v2.5M12 20v2.5M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M1.5 12H4M20 12h2.5M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8"/></symbol>
+    <symbol id="i-caret" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5"/></symbol>
+  </defs>
+</svg>
 <header class="topbar">
   <div class="brand">
     <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="28.5" class="bm-disc"/><g transform="translate(32 33) scale(1.05)"><path d="M-7-18 0-9 8-19" class="bm-ant"/><rect x="-17" y="-10" width="34" height="24" rx="5" class="bm-tv"/><rect x="-13" y="-6.5" width="20" height="17" rx="4" class="bm-scr"/><circle cx="11" cy="-2" r="2" class="bm-scr"/><circle cx="11" cy="5" r="2" class="bm-scr"/></g></svg>
@@ -25,26 +47,59 @@
     </div>
   </div>
   <nav class="tabs" role="tablist">
-    <button role="tab" data-view="designer" class="tab is-active">Casting</button>
-    <button role="tab" data-view="cast" class="tab">Call Sheet</button>
-    <button role="tab" data-view="cards" class="tab">My Cards <span id="cardCount" class="count"></span></button>
-    <button role="tab" data-view="print" class="tab">Print Sheet</button>
-    <button role="tab" data-view="props" class="tab">Props</button>
-    <button role="tab" data-view="genres" class="tab">Genres</button>
-    <button role="tab" data-view="reference" class="tab">Reference</button>
-    <button role="tab" data-view="index" class="tab">Index</button>
-    <button role="tab" data-view="shows" class="tab">Episodes</button>
-    <button role="tab" data-view="episodes" class="tab">Episode Guide</button>
-    <button role="tab" data-view="writers" class="tab">Writers' Room</button>
-    <button role="tab" data-view="about" class="tab">About</button>
+    <button role="tab" data-view="home" class="tab is-active"><svg class="ic" aria-hidden="true"><use href="#i-home"/></svg><span>Home</span></button>
+    <div class="tab-group" data-group="cards">
+      <button type="button" class="tab tab-head" aria-haspopup="true" aria-expanded="false"><svg class="ic" aria-hidden="true"><use href="#i-cards"/></svg><span>Cards</span><svg class="ic ic-caret" aria-hidden="true"><use href="#i-caret"/></svg></button>
+      <div class="tab-menu" role="menu">
+        <button role="tab" data-view="designer" class="tab"><svg class="ic" aria-hidden="true"><use href="#i-casting"/></svg><span>Casting</span></button>
+        <button role="tab" data-view="cards" class="tab"><svg class="ic" aria-hidden="true"><use href="#i-stack"/></svg><span>My Cards</span> <span id="cardCount" class="count"></span></button>
+        <button role="tab" data-view="props" class="tab"><svg class="ic" aria-hidden="true"><use href="#i-props"/></svg><span>Props</span></button>
+        <button role="tab" data-view="print" class="tab"><svg class="ic" aria-hidden="true"><use href="#i-print"/></svg><span>Print Sheet</span></button>
+      </div>
+    </div>
+    <button role="tab" data-view="cast" class="tab"><svg class="ic" aria-hidden="true"><use href="#i-callsheet"/></svg><span>Call Sheet</span></button>
+    <div class="tab-group" data-group="episodes">
+      <button type="button" class="tab tab-head" aria-haspopup="true" aria-expanded="false"><svg class="ic" aria-hidden="true"><use href="#i-clapper"/></svg><span>Episodes</span><svg class="ic ic-caret" aria-hidden="true"><use href="#i-caret"/></svg></button>
+      <div class="tab-menu" role="menu">
+        <button role="tab" data-view="shows" class="tab"><svg class="ic" aria-hidden="true"><use href="#i-clapper"/></svg><span>Episodes</span></button>
+        <button role="tab" data-view="writers" class="tab"><svg class="ic" aria-hidden="true"><use href="#i-pen"/></svg><span>Writers' Room</span></button>
+        <button role="tab" data-view="episodes" class="tab"><svg class="ic" aria-hidden="true"><use href="#i-guide"/></svg><span>Episode Guide</span></button>
+      </div>
+    </div>
+    <div class="tab-group" data-group="rules">
+      <button type="button" class="tab tab-head" aria-haspopup="true" aria-expanded="false"><svg class="ic" aria-hidden="true"><use href="#i-rules"/></svg><span>Rules</span><svg class="ic ic-caret" aria-hidden="true"><use href="#i-caret"/></svg></button>
+      <div class="tab-menu" role="menu">
+        <button role="tab" data-view="reference" class="tab"><svg class="ic" aria-hidden="true"><use href="#i-die"/></svg><span>Reference</span></button>
+        <button role="tab" data-view="genres" class="tab"><svg class="ic" aria-hidden="true"><use href="#i-reel"/></svg><span>Genres</span></button>
+        <button role="tab" data-view="index" class="tab"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg><span>Index</span></button>
+      </div>
+    </div>
+    <button role="tab" data-view="about" class="tab"><svg class="ic" aria-hidden="true"><use href="#i-info"/></svg><span>About</span></button>
   </nav>
-  <button id="btnTheme" class="btn btn-ghost theme-btn" type="button">Dark mode</button>
+  <button id="btnTheme" class="btn btn-ghost theme-btn" type="button" aria-label="Dark mode" title="Dark mode"><svg class="ic" aria-hidden="true"><use href="#i-moon"/></svg></button>
   <button id="btnNew" class="btn btn-primary">New card</button>
 </header>
 
 <main>
+  <!-- HOME -->
+  <section id="view-home" class="view is-active">
+    <div class="home">
+      <div class="home-hero">
+        <h2>Lights, camera, casting</h2>
+        <p>Design profile cards for 7TV 2nd Edition, build your casts, and play episodes written for this site, or write your own. Everything stays in your browser.</p>
+        <div class="row wrap"><button type="button" class="btn btn-primary" data-goto="designer">Design a card</button><button type="button" class="btn btn-ghost" data-goto="shows">Pick an episode</button></div>
+      </div>
+      <div class="home-groups">
+        <section class="home-group"><h3>Cards</h3><div class="home-tiles"><button type="button" class="home-tile" data-goto="designer"><svg class="ic" aria-hidden="true"><use href="#i-casting"/></svg><span class="home-t">Casting</span><span class="home-d">Design a Star, Co-Star, Extra or vehicle, or start from any official profile.</span></button><button type="button" class="home-tile" data-goto="cards"><svg class="ic" aria-hidden="true"><use href="#i-stack"/></svg><span class="home-t">My Cards</span><span class="home-d">Your saved cards: back them up and pick some to print.</span></button><button type="button" class="home-tile" data-goto="props"><svg class="ic" aria-hidden="true"><use href="#i-props"/></svg><span class="home-t">Props</span><span class="home-d">Design Prop and Maguffin cards.</span></button><button type="button" class="home-tile" data-goto="print"><svg class="ic" aria-hidden="true"><use href="#i-print"/></svg><span class="home-t">Print Sheet</span><span class="home-d">Print cards at sleeve size, and binder dividers.</span></button></div></section>
+        <section class="home-group"><h3>Casts</h3><div class="home-tiles"><button type="button" class="home-tile" data-goto="cast"><svg class="ic" aria-hidden="true"><use href="#i-callsheet"/></svg><span class="home-t">Call Sheet</span><span class="home-d">Build a cast to a ratings limit, with the casting rules checked as you go.</span></button></div></section>
+        <section class="home-group"><h3>Episodes</h3><div class="home-tiles"><button type="button" class="home-tile" data-goto="shows"><svg class="ic" aria-hidden="true"><use href="#i-clapper"/></svg><span class="home-t">Episodes</span><span class="home-d">New episodes written for this site, with maps and playtest status.</span></button><button type="button" class="home-tile" data-goto="writers"><svg class="ic" aria-hidden="true"><use href="#i-pen"/></svg><span class="home-t">Writers' Room</span><span class="home-d">Write your own episode or trope and draw its map.</span></button><button type="button" class="home-tile" data-goto="episodes"><svg class="ic" aria-hidden="true"><use href="#i-guide"/></svg><span class="home-t">Episode Guide</span><span class="home-d">Every episode and trope in the books, with page numbers.</span></button></div></section>
+        <section class="home-group"><h3>Rules</h3><div class="home-tiles"><button type="button" class="home-tile" data-goto="reference"><svg class="ic" aria-hidden="true"><use href="#i-die"/></svg><span class="home-t">Reference</span><span class="home-d">The quick reference for play, with a printable PDF.</span></button><button type="button" class="home-tile" data-goto="genres"><svg class="ic" aria-hidden="true"><use href="#i-reel"/></svg><span class="home-t">Genres</span><span class="home-d">The twelve genres and the films behind them.</span></button><button type="button" class="home-tile" data-goto="index"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg><span class="home-t">Index</span><span class="home-d">Find any rule in the Core Rulebook and the 80s guide.</span></button></div></section>
+      </div>
+    </div>
+  </section>
+
   <!-- DESIGNER -->
-  <section id="view-designer" class="view is-active">
+  <section id="view-designer" class="view">
     <div class="designer">
       <div class="stage-col">
         <div class="stage" id="stage">
@@ -736,34 +791,34 @@
 
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
-<script src="js/vendor/jspdf.umd.min.js?v=202611250419"></script>
-<script src="js/data/rules.js?v=202611250419"></script>
-<script src="js/data/profiles.js?v=202611250419"></script>
-<script src="js/data/profiles-stubs.js?v=202611250419"></script>
-<script src="js/data/special-effects.js?v=202611250419"></script>
-<script src="js/data/units.js?v=202611250419"></script>
-<script src="js/data/genres-info.js?v=202611250419"></script>
-<script src="js/data/movies.js?v=202611250419"></script>
-<script src="js/data/book-index.js?v=202611250419"></script>
-<script src="js/data/episodes.js?v=202611250419"></script>
-<script src="js/data/roles.js?v=202611250419"></script>
-<script src="js/prop-render.js?v=202611250419"></script>
-<script src="js/card-render.js?v=202611250419"></script>
-<script src="js/ratings.js?v=202611250419"></script>
-<script src="js/cast-rules.js?v=202611250419"></script>
-<script src="js/card-store.js?v=202611250419"></script>
-<script src="js/data/binder.js?v=202611250419"></script>
-<script src="js/dividers.js?v=202611250419"></script>
-<script src="js/print.js?v=202611250419"></script>
-<script src="js/app.js?v=202611250419"></script>
-<script src="js/props.js?v=202611250419"></script>
-<script src="js/genres.js?v=202611250419"></script>
-<script src="js/index-page.js?v=202611250419"></script>
-<script src="js/episodes-page.js?v=202611250419"></script>
-<script src="js/cast.js?v=202611250419"></script>
-<script src="js/data/writers-room.js?v=202611250419"></script>
-<script src="js/data/site-episodes.js?v=202611250419"></script>
-<script src="js/shows-page.js?v=202611250419"></script>
-<script src="js/writers-room.js?v=202611250419"></script>
+<script src="js/vendor/jspdf.umd.min.js?v=202611251709"></script>
+<script src="js/data/rules.js?v=202611251709"></script>
+<script src="js/data/profiles.js?v=202611251709"></script>
+<script src="js/data/profiles-stubs.js?v=202611251709"></script>
+<script src="js/data/special-effects.js?v=202611251709"></script>
+<script src="js/data/units.js?v=202611251709"></script>
+<script src="js/data/genres-info.js?v=202611251709"></script>
+<script src="js/data/movies.js?v=202611251709"></script>
+<script src="js/data/book-index.js?v=202611251709"></script>
+<script src="js/data/episodes.js?v=202611251709"></script>
+<script src="js/data/roles.js?v=202611251709"></script>
+<script src="js/prop-render.js?v=202611251709"></script>
+<script src="js/card-render.js?v=202611251709"></script>
+<script src="js/ratings.js?v=202611251709"></script>
+<script src="js/cast-rules.js?v=202611251709"></script>
+<script src="js/card-store.js?v=202611251709"></script>
+<script src="js/data/binder.js?v=202611251709"></script>
+<script src="js/dividers.js?v=202611251709"></script>
+<script src="js/print.js?v=202611251709"></script>
+<script src="js/app.js?v=202611251709"></script>
+<script src="js/props.js?v=202611251709"></script>
+<script src="js/genres.js?v=202611251709"></script>
+<script src="js/index-page.js?v=202611251709"></script>
+<script src="js/episodes-page.js?v=202611251709"></script>
+<script src="js/cast.js?v=202611251709"></script>
+<script src="js/data/writers-room.js?v=202611251709"></script>
+<script src="js/data/site-episodes.js?v=202611251709"></script>
+<script src="js/shows-page.js?v=202611251709"></script>
+<script src="js/writers-room.js?v=202611251709"></script>
 </body>
 </html>

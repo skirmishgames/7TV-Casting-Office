@@ -10,7 +10,7 @@ const assert = (c, m) => { if (!c) throw new Error('FAIL: ' + m); console.log('o
   await p.goto(base); await p.waitForTimeout(700);
   const cur = () => p.evaluate(() => JSON.parse(JSON.stringify(WritersRoom.state.cur)));
 
-  await p.click('.tab[data-view="writers"]'); await p.waitForTimeout(400);
+  await p.evaluate(() => App.showView('writers')); await p.waitForTimeout(400);
   assert(await p.isVisible('.wr-empty'), "Writers' Room opens on its intro");
   await p.click('#wrNewEp'); await p.waitForTimeout(400);
   await p.fill('.wr-block input[type="text"] >> nth=0', 'The Odeon Job');
@@ -114,7 +114,7 @@ const assert = (c, m) => { if (!c) throw new Error('FAIL: ' + m); console.log('o
   const backup = await p.evaluate(async () => JSON.parse(await CardStore.exportJSON()).episodes.length);
   assert(backup === 5, 'the backup file holds all episodes and tropes');
   await p.reload(); await p.waitForTimeout(700);
-  await p.click('.tab[data-view="writers"]'); await p.waitForTimeout(400);
+  await p.evaluate(() => App.showView('writers')); await p.waitForTimeout(400);
   assert((await p.$$('#wrList .wr-item')).length === 5, 'everything is still there after a reload');
 
   await p.setViewportSize({ width: 390, height: 844 }); await p.click('#wrList .wr-item >> nth=0'); await p.waitForTimeout(300);

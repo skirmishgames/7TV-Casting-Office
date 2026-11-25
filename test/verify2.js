@@ -8,7 +8,7 @@ const assert = (c, m) => { if (!c) { throw new Error('FAIL: ' + m); } console.lo
   const p = await ctx.newPage(); const errs = [];
   p.on('pageerror', (e) => errs.push(e.message));
   p.on('dialog', (d) => d.accept());
-  await p.goto(base);
+  await p.goto(base + '#designer');
   await p.click('#btnNew'); await p.waitForSelector('#dlgNew[open]');
   assert(await p.evaluate(() => document.documentElement.dataset.theme) === 'light', 'light mode by default');
   await p.fill('#profileSearch', 'grizzled');
@@ -62,13 +62,13 @@ const assert = (c, m) => { if (!c) { throw new Error('FAIL: ' + m); } console.lo
   await p.reload(); await p.waitForTimeout(800);
   assert(await p.inputValue('#fName') === 'Sergeant Rock', 'reload restores the open card');
   // my cards
-  await p.click('.tab[data-view="cards"]'); await p.waitForTimeout(800);
+  await p.evaluate(() => App.showView('cards')); await p.waitForTimeout(800);
   assert(await p.locator('.tile').count() === 1, 'one saved card');
   await p.check('.tile [data-sel]');
   assert((await p.textContent('#castTotal')).includes('16 ratings'), 'cast total 16');
   await p.screenshot({ path: out + '/v2-cards.png' });
   // print
-  await p.click('.tab[data-view="print"]'); await p.waitForTimeout(1500);
+  await p.evaluate(() => App.showView('print')); await p.waitForTimeout(1500);
   assert(await p.inputValue('#pLayout') === 'fold', 'fold-over layout is the default');
   assert(await p.locator('.sheet').count() === 1 && await p.locator('.sheet img').count() === 2, 'fold-over preview: one sheet, front beside back');
   const faces = await p.$$eval('.sheet img', (x) => x.map((e) => [parseFloat(e.style.left), parseFloat(e.style.top)]));
@@ -103,11 +103,11 @@ const assert = (c, m) => { if (!c) { throw new Error('FAIL: ' + m); } console.lo
   path = out + '/sheet.pdf'; await pdf.saveAs(path);
   mb = mediaBoxes(path);
   assert(mb.length === 2 && mb[0][0] === 595 && mb[0][1] === 842, 'nine-up PDF is two A4 portrait pages ' + JSON.stringify(mb));
-  await p.reload(); await p.waitForTimeout(800); await p.click('.tab[data-view="print"]'); await p.waitForTimeout(300);
+  await p.reload(); await p.waitForTimeout(800); await p.evaluate(() => App.showView('print')); await p.waitForTimeout(300);
   assert(await p.inputValue('#pLayout') === 'grid', 'layout choice is remembered');
   await p.selectOption('#pLayout', 'fold');
   // backup export
-  await p.click('.tab[data-view="cards"]'); await p.waitForTimeout(300);
+  await p.evaluate(() => App.showView('cards')); await p.waitForTimeout(300);
   const [bk] = await Promise.all([p.waitForEvent('download'), p.click('#btnExport')]);
   const bpath = out + '/backup.json'; await bk.saveAs(bpath);
   const data = JSON.parse(require('fs').readFileSync(bpath, 'utf8'));

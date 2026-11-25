@@ -1075,9 +1075,40 @@
   function renderPrintPreviewSoon() { clearTimeout(prT); prT = setTimeout(renderPrintView, 250); }
 
   /* ---------------- views ---------------- */
+  /* navigation menus: the Cards, Episodes and Rules groups open on click */
+  function closeMenus() {
+    $$('.tab-group.open').forEach((g) => { g.classList.remove('open'); g.querySelector('.tab-head').setAttribute('aria-expanded', 'false'); });
+  }
+  let openedAt = 0;
+  function wireMenus() {
+    $$('.tab-group').forEach((g) => {
+      const head = g.querySelector('.tab-head'), menu = g.querySelector('.tab-menu');
+      head.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const open = !g.classList.contains('open');
+        closeMenus();
+        if (!open) return;
+        g.classList.add('open'); head.setAttribute('aria-expanded', 'true'); openedAt = Date.now();
+        const r = head.getBoundingClientRect();
+        menu.style.top = Math.round(r.bottom + 4) + 'px';
+        menu.style.left = Math.round(Math.max(8, Math.min(r.left, window.innerWidth - menu.offsetWidth - 8))) + 'px';
+        const first = menu.querySelector('.tab'); if (first && e.detail === 0) first.focus();
+      });
+    });
+    document.addEventListener('click', (e) => { if (!e.target.closest('.tab-menu')) closeMenus(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenus(); });
+    window.addEventListener('resize', closeMenus);
+    // the top bar stays put when the page scrolls, so only a sideways scroll of the tab row moves the menus' anchors
+    $('.tabs').addEventListener('scroll', () => { if (Date.now() - openedAt > 400) closeMenus(); }, { passive: true });
+  }
   function showView(v) {
-    $$('.tab').forEach((t) => t.classList.toggle('is-active', t.dataset.view === v));
+    if (!document.getElementById('view-' + v)) v = 'home';
+    $$('.tab[data-view]').forEach((t) => t.classList.toggle('is-active', t.dataset.view === v));
+    $$('.tab-group').forEach((g) => g.querySelector('.tab-head').classList.toggle('is-active', !!g.querySelector(`.tab-menu [data-view="${v}"]`)));
+    closeMenus();
     $$('.view').forEach((s) => s.classList.toggle('is-active', s.id === 'view-' + v));
+    // the address shows the page, so a reload or a shared link opens it again
+    if (!(v === 'shows' && /^#episode\//.test(location.hash))) history.replaceState(null, '', v === 'home' ? location.pathname + location.search : '#' + v);
     if (v === 'cards') renderCardsView();
     if (v === 'print') { refreshSaved().then(renderPrintView); if (window.Dividers) window.Dividers.show(); }
     if (v === 'cast' && window.CastUI) window.CastUI.show();
@@ -1099,9 +1130,14 @@
   async function boot() {
     buildDatalists();
     wireForm(); wirePortrait(); wireWizard(); wireLibrary(); wireCards(); wirePrint();
-    $$('.tab').forEach((t) => t.addEventListener('click', () => showView(t.dataset.view)));
+    $$('.tab[data-view]').forEach((t) => t.addEventListener('click', () => showView(t.dataset.view)));
+    wireMenus();
     document.addEventListener('click', (e) => { const a = e.target.closest('[data-goto]'); if (a) { e.preventDefault(); showView(a.dataset.goto); window.scrollTo(0, 0); } });
-    const setThemeLabel = () => { const dark = document.documentElement.dataset.theme === 'dark'; $('#btnTheme').textContent = dark ? 'Light mode' : 'Dark mode'; $('#btnTheme').setAttribute('aria-pressed', dark); };
+    const setThemeLabel = () => {
+      const dark = document.documentElement.dataset.theme === 'dark', b = $('#btnTheme'), label = dark ? 'Light mode' : 'Dark mode';
+      b.setAttribute('aria-label', label); b.title = label; b.setAttribute('aria-pressed', dark);
+      b.querySelector('use').setAttribute('href', dark ? '#i-sun' : '#i-moon');
+    };
     setThemeLabel();
     $('#btnTheme').addEventListener('click', () => {
       const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
@@ -1135,5 +1171,18 @@
     openCard(blankCard('star', S.lastSet), false);
   }
   window.App = { S, openCard, openProfile, cardFromProfile, blankCard, renderCardImages, toast, showView, refreshSaved, printCast, confirmDiscard, esc, uid, loadImg, readImageFile };
-  boot().then(() => { if (window.ShowsUI) window.ShowsUI.fromHash(); });
+  /* open the page named in the address (#writers, #episode/<id>), or Home */
+  const startHash = location.hash; // read before boot, which opens the card designer
+  function route() {
+    history.replaceState(null, '', startHash || location.pathname + location.search);
+    if (window.ShowsUI && window.ShowsUI.fromHash()) return;
+    const v = location.hash.slice(1);
+    showView(v && document.getElementById('view-' + v) ? v : 'home');
+  }
+  boot().then(route);
+  window.addEventListener('hashchange', () => {
+    if (/^#episode\//.test(location.hash)) return; // the Episodes page handles these
+    const v = location.hash.slice(1);
+    showView(v && document.getElementById('view-' + v) ? v : 'home');
+  });
 })();

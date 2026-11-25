@@ -7,7 +7,7 @@ const assert = (c, m) => { if (!c) throw new Error('FAIL: ' + m); console.log('o
   const b = await chromium.launch(); const ctx = await b.newContext({ viewport: { width: 1500, height: 1000 } });
   const p = await ctx.newPage(); const errs = [];
   p.on('pageerror', (e) => errs.push(e.message)); p.on('dialog', (d) => d.accept());
-  await p.goto(base); await p.waitForSelector('#genreToggles .genre-set');
+  await p.goto(base + '#designer'); await p.waitForSelector('#genreToggles .genre-set');
   assert(!(await p.isVisible('#dlgNew')), 'no popup on first open');
   const r = await p.evaluate(() => {
     const P = (id) => SEVENTV_PROFILES.find((x) => x.id === id);
@@ -44,7 +44,7 @@ const assert = (c, m) => { if (!c) throw new Error('FAIL: ' + m); console.log('o
   assert(JSON.stringify(r.mixedGenres) === '[1,0,1,0,1,0]', 'Maverick Cop counts as Action, Fantasy, Horror');
 
   // UI
-  await p.click('.tab[data-view="cast"]'); await p.waitForTimeout(500);
+  await p.evaluate(() => App.showView('cast')); await p.waitForTimeout(500);
   await p.fill('#cName', 'Pulp Heroes');
   await p.click('#addKinds [data-kind="star"]');
   await p.fill('#addSearch', 'bold blade'); await p.click('#addList [data-add="p:bold-blade"]');
@@ -67,7 +67,7 @@ const assert = (c, m) => { if (!c) throw new Error('FAIL: ' + m); console.log('o
   { const sheets = await p.locator('.sheet').count(), faces = await p.locator('.sheet img').count();
     assert(faces % 2 === 0 && sheets === Math.ceil(faces / 2 / 4), `fold-over sheets hold 4 cards each (${faces / 2} cards on ${sheets} sheets)`); }
   await p.reload(); await p.waitForTimeout(600);
-  await p.click('.tab[data-view="cast"]'); await p.waitForTimeout(600);
+  await p.evaluate(() => App.showView('cast')); await p.waitForTimeout(600);
   assert((await p.inputValue('#cName')) === 'Pulp Heroes' && (await p.textContent('#cTotal')) === '19', 'cast saved and restored');
   await p.click('#btnCastNew'); await p.waitForTimeout(300);
   await p.uncheck('#addFits'); await p.fill('#addSearch', '');
@@ -82,9 +82,9 @@ const assert = (c, m) => { if (!c) throw new Error('FAIL: ' + m); console.log('o
   // phone layout: bottom bar flips between the cast and the Add list
   const ph = await (await b.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true })).newPage();
   ph.on('pageerror', (e) => errs.push(e.message));
-  await ph.goto(base); await ph.waitForTimeout(600);
+  await ph.goto(base + '#designer'); await ph.waitForTimeout(600);
   if (await ph.isVisible('#dlgNew')) await ph.click('#dlgNew .dlg-head button');
-  await ph.click('.tab[data-view="cast"]'); await ph.waitForTimeout(500);
+  await ph.evaluate(() => App.showView('cast')); await ph.waitForTimeout(500);
   assert(await ph.isVisible('#castBar') && !(await ph.isVisible('.cast-add')), 'phone: bottom bar shown, Add list hidden');
   await ph.click('#cbToggle'); await ph.waitForTimeout(200);
   assert(await ph.isVisible('.cast-add') && !(await ph.isVisible('#castMain')), 'phone: Add profiles shows the Add list');

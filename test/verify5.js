@@ -6,7 +6,7 @@ const assert = (c, m) => { if (!c) throw new Error('FAIL: ' + m); console.log('o
   const b = await chromium.launch(); const errs = [];
   const p = await (await b.newContext({ viewport: { width: 1440, height: 950 } })).newPage();
   p.on('pageerror', (e) => errs.push(e.message)); p.on('dialog', (d) => d.accept());
-  await p.goto(base); await p.waitForTimeout(700);
+  await p.goto(base + '#designer'); await p.waitForTimeout(700);
 
   const data = await p.evaluate(() => {
     const P = new Map(SEVENTV_PROFILES.map((x) => [x.id, x])), M = SEVENTV_MOVIES, R = SEVENTV_RULES;
@@ -36,7 +36,7 @@ const assert = (c, m) => { if (!c) throw new Error('FAIL: ' + m); console.log('o
   const missing = must.filter((t) => !data.titles.includes(t));
   assert(missing.length === 0, 'all requested films are listed ' + missing.join(', '));
 
-  await p.click('.tab[data-view="genres"]'); await p.waitForTimeout(300);
+  await p.evaluate(() => App.showView('genres')); await p.waitForTimeout(300);
   assert(await p.locator('.gp-genre').count() === 12, '12 genre cards with symbols');
   assert(await p.locator('.gp-genre img').count() === 12, 'every genre card has its symbol');
   assert((await p.textContent('#gpCount')).startsWith(data.n + ' films'), `all ${data.n} films listed by default`);
@@ -60,7 +60,7 @@ const assert = (c, m) => { if (!c) throw new Error('FAIL: ' + m); console.log('o
   assert(await p.inputValue('#fName') === 'John Matrix' && await p.inputValue('#fAffiliation') === 'heroic', 'starting a card from a character names it and sets the affiliation');
 
   const ph = await (await b.newContext({ viewport: { width: 390, height: 844 } })).newPage(); ph.on('pageerror', (e) => errs.push(e.message));
-  await ph.goto(base); await ph.waitForTimeout(700); await ph.click('.tab[data-view="genres"]'); await ph.waitForTimeout(300);
+  await ph.goto(base + '#designer'); await ph.waitForTimeout(700); await ph.evaluate(() => App.showView('genres')); await ph.waitForTimeout(300);
   await ph.fill('#gpSearch', 'aliens'); await ph.click('.gp-film summary'); await ph.waitForTimeout(200);
   assert((await ph.evaluate(() => document.documentElement.scrollWidth)) <= 390, 'phone: no sideways scroll with a film open');
   assert(errs.length === 0, 'no page errors ' + JSON.stringify(errs));

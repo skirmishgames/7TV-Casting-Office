@@ -84,17 +84,30 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .brand-mark .bm-ant { fill: none; stroke: var(--star-band); stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
 .brand-mark .bm-tv { fill: var(--star-band); }
 .brand-mark .bm-scr { fill: #1b1d20; }
-.tabs { display: flex; gap: 4px; }
-.tab { background: none; border: 0; padding: 10px 14px; cursor: pointer; color: var(--text-2); font: 600 16px var(--body); border-bottom: 3px solid transparent; white-space: nowrap; }
-/* nine tabs: below this width the tabs take their own row under the brand */
-@media (max-width: 1480px) and (min-width: 641px) {
+.icon-sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+.ic { width: 20px; height: 20px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.ic .dot { fill: currentColor; stroke: none; }
+.tabs { display: flex; gap: 2px; align-items: center; }
+.tab { display: inline-flex; align-items: center; gap: 7px; background: none; border: 0; padding: 10px 12px; cursor: pointer; color: var(--text-2); font: 600 16px var(--body); border-bottom: 3px solid transparent; white-space: nowrap; }
+.tab:hover { color: var(--strong); }
+.tab .ic { color: var(--star); }
+.ic-caret { width: 14px; height: 14px; margin-left: -3px; color: var(--muted) !important; transition: transform 0.15s; }
+.tab-group.open .ic-caret { transform: rotate(180deg); }
+.tab-menu { display: none; position: fixed; z-index: 60; min-width: 210px; flex-direction: column; padding: 6px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18); }
+.tab-group.open .tab-menu { display: flex; }
+.tab-menu .tab { width: 100%; border-bottom: 0; border-left: 3px solid transparent; border-radius: 4px; padding: 9px 12px; }
+.tab-menu .tab:hover { background: var(--field); }
+.tab-menu .tab.is-active { border-left-color: var(--tape); background: var(--field); }
+.theme-btn { padding: 7px 9px; }
+.theme-btn .ic { width: 20px; height: 20px; }
+/* below this width the tabs take their own row under the brand */
+@media (max-width: 1100px) and (min-width: 641px) {
   .topbar { flex-wrap: wrap; row-gap: 4px; }
   .tabs { order: 3; width: 100%; overflow-x: auto; scrollbar-width: none; }
   .tab { padding: 8px 12px; }
 }
 .tab.is-active { color: var(--strong); border-bottom-color: var(--tape); }
 .count { font: 400 14px var(--body); color: var(--muted); }
-.theme-btn { min-width: 112px; justify-content: center; }
 
 /* buttons */
 .btn { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; border-radius: 6px; padding: 7px 14px; border: 2px solid transparent; font-weight: 600; font-size: 15px; line-height: 1.25; white-space: nowrap; }
@@ -493,7 +506,9 @@ html[data-theme="dark"] .ok-line { color: #6fcf7f; }
   .stage { padding: 14px 10px 10px; }
   .filters .seg { flex-wrap: wrap; }
   .tabs { order: 3; width: 100%; overflow-x: auto; scrollbar-width: none; }
-  .tab { padding: 8px 5px; font-size: 13px; flex: none; }
+  .tab { padding: 8px 6px; font-size: 13px; flex: none; gap: 5px; }
+  .tab .ic { width: 17px; height: 17px; }
+  .tab-menu .tab { font-size: 15px; }
   .tabs { gap: 2px; justify-content: space-between; }
   .dlg { width: 100vw; max-width: 100vw; }
   .genres { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -946,3 +961,26 @@ html[data-theme="dark"] .qref { --q-red: #ec8076; --q-blue: #8dbbe0; }
 .wr-k-waypoint { fill: #fff; stroke: #1b1d20; stroke-width: 0.15; }
 .wr-wp-n { font: 700 0.95px var(--body); fill: #1b1d20; }
 .wr-sw.wr-k-waypoint { background: #fff; border: 2px solid #1b1d20; transform: rotate(45deg) scale(0.8); }
+
+/* Home */
+.home { max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 22px; }
+.home-hero { padding: 26px 28px; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); border-top: 5px solid var(--star-band); }
+.home-hero h2 { font-size: 46px; margin-bottom: 8px; }
+.home-hero p { max-width: 62ch; color: var(--text-2); font-size: 17px; margin: 0 0 14px; }
+.home-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.home-group h3 { font-size: 26px; margin: 0 0 8px; }
+.home-tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
+.home-tile { display: grid; grid-template-columns: 34px minmax(0, 1fr); grid-template-rows: auto auto; column-gap: 10px; text-align: left; padding: 12px 14px; cursor: pointer; background: var(--surface); color: var(--text); border: 1px solid var(--line); border-radius: var(--radius); font: inherit; }
+.home-tile:hover { border-color: var(--line-hover); box-shadow: var(--shadow); }
+.home-tile .ic { grid-row: 1 / 3; width: 30px; height: 30px; color: var(--star); align-self: start; }
+.home-t { font-weight: 700; font-size: 16px; }
+.home-d { color: var(--muted); font-size: 14px; line-height: 1.35; }
+@media (max-width: 900px) { .home-groups { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 640px) { .home-hero { padding: 18px; } .home-hero h2 { font-size: 34px; } }
+@media (max-width: 640px) {
+  .brand { flex: 1 1 auto; min-width: 0; }
+  .brand p { display: none; }
+  .brand h1 { font-size: 28px; }
+  .brand-mark { width: 38px; height: 38px; }
+  #btnNew { padding: 6px 10px; }
+}
